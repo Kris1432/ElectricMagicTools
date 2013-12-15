@@ -2,7 +2,14 @@ package electricMagicTools.tombenpotter.electricmagictools.common;
 
 public class CommonProxy {
 
-	public void registerRenders() {
-	};
+	public void load()
+	{
+		registerRenders();
+	}
+	
+	public void registerRenders() 
+	{
+		/* Empty in common proxy */
+	}
 
 }

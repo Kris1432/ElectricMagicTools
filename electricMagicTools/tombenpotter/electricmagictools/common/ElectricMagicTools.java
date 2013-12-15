@@ -31,7 +31,10 @@ import electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntity
 @Mod(modid = ElectricMagicTools.modid, name = "Electric Magic Tools", version = "1.0.4", dependencies = "required-after:Thaumcraft ; required-after:IC2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class ElectricMagicTools {
-
+	
+@SidedProxy(clientSide = "electricMagicTools.tombenpotter.electricmagictools.client.ClientProxy", serverSide = "electricMagicTools.tombenpotter.electricmagictools.common.CommonProxy")
+public static CommonProxy proxy;
+    
 	public static final String modid = "Tombenpotter's ElectricMagicTools";
 
 	public static Item thaumiumDrill;
@@ -87,7 +90,9 @@ public class ElectricMagicTools {
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-
+		/** Loading Proxy Load */
+		proxy.load();
+		
 		CreativeTab.load();
 		thaumiumDrill = new ItemThaumiumDrill(thaumiumDrillID)
 				.setUnlocalizedName("thaumiumdrill");
