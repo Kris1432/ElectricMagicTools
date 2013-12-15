@@ -9,6 +9,11 @@ import electricMagicTools.tombenpotter.electricmagictools.common.entities.Render
 public class ClientProxy extends CommonProxy {
 
 	@Override
+	public void load()
+	{
+		registerRenders();	
+	}
+
 	public void registerRenders() 
 	{
 		EntityRegistry.registerGlobalEntityID(EntityLaser.class, "entityLaser", EntityRegistry.findGlobalUniqueEntityId());
