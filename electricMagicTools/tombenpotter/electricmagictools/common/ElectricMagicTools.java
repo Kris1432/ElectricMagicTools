@@ -7,6 +7,7 @@ import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -90,7 +91,6 @@ public static CommonProxy proxy;
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		/** Loading Proxy Load */
 		proxy.load();
 		
 		CreativeTab.load();
@@ -128,16 +128,14 @@ public static CommonProxy proxy;
 
 		EntityRegistry.registerModEntity(EntityLaser.class, "entityLaser", 1,
 				this, 80, 3, true);
-		RenderingRegistry.registerEntityRenderingHandler(EntityLaser.class,
-				new RenderLaser());
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.Tombenpotter_ElectricMagicTools.EntityLaser.name",
 				"Laser");
 
-		essentiaGenerator = new BlockEssentiaGenerator(essentiaGeneratorID, Material.iron);
-		GameRegistry.registerBlock(essentiaGenerator, "essentiagenerator");
-		GameRegistry.registerTileEntity(TileEntityEssentiaGenerator.class, "tileentityessentiagenerator");
-		LanguageRegistry.addName(essentiaGenerator, "Essentia Generator");
+	//	essentiaGenerator = new BlockEssentiaGenerator(essentiaGeneratorID, Material.iron);
+	//	GameRegistry.registerBlock(essentiaGenerator, "essentiagenerator");
+	//	GameRegistry.registerTileEntity(TileEntityEssentiaGenerator.class, "tileentityessentiagenerator");
+	//	LanguageRegistry.addName(essentiaGenerator, "Essentia Generator");
 		
 	}
 

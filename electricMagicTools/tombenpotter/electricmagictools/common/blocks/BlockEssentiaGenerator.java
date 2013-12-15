@@ -1,13 +1,17 @@
 package electricMagicTools.tombenpotter.electricmagictools.common.blocks;
 
+import ic2.api.tile.IWrenchable;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
+import electricMagicTools.tombenpotter.electricmagictools.common.ElectricMagicTools;
 import electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityEssentiaGenerator;
 
 public class BlockEssentiaGenerator extends BlockContainer {

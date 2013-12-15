@@ -1,0 +1,11 @@
+Changelog of the mod : Electric Magic Tools, a Thaumcraft 4/Industrial-Craft 2 addon
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Version 1.0.0 : First release of the mod.
+Version 1.0.1 : Second release of the mod : fixes a crash due to the Omnitools.
+Version 1.0.2 : Third release of the mod : adds the Wand Focus : Laser, and a christmas easter egg. Does not work on servers.
+Version 1.0.3 : Attempt to fix the server crash of the mod. Attemps failed.
+Version 1.0.3b : Second attempt to fix the server crash, it is again working in SMP.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------

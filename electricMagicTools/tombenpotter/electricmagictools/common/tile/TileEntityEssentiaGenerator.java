@@ -10,34 +10,34 @@ import electricMagicTools.tombenpotter.electricmagictools.common.ElectricMagicTo
 
 public class TileEntityEssentiaGenerator extends TileEntity {
 
-	public int facingX;
-	public int facingZ;
+	public int xSide;
+	public int zSide;
 	private int speedyTime;
 	private int speedyDelay;
 	private int drainCounter;
-	int jx;
-	int jy;
-	int jz;
-	int jr;
+	int jarXCoord;
+	int jarYCoord;
+	int jarZCoord;
+	int jar;
 
 	public TileEntityEssentiaGenerator() {
-		jx = 0x7fffffff;
-		jy = 0;
-		jz = 0;
-		jr = 0;
+		jarXCoord = 0x7fffffff;
+		jarYCoord = 0;
+		jarZCoord = 0;
+		jar = 0;
 	}
 
 	private BasicSource ic2EnergySource = new BasicSource(this, 1000, 1);
 
 	@Override
 	public void invalidate() {
-		ic2EnergySource.invalidate(); // notify the energy source
-		super.invalidate(); // this is important for mc!
+		ic2EnergySource.invalidate();
+		super.invalidate();
 	}
 
 	@Override
 	public void onChunkUnload() {
-		ic2EnergySource.onChunkUnload(); // notify the energy source
+		ic2EnergySource.onChunkUnload();
 	}
 
 	@Override
@@ -54,14 +54,10 @@ public class TileEntityEssentiaGenerator extends TileEntity {
 
 	@Override
 	public void updateEntity() {
-		doStuff();
 		ic2EnergySource.updateEntity();
-		ic2EnergySource.addEnergy(5);
-	}
-
-	public boolean doStuff() {
-		if (facingX == -5) {
-			getFacing();
+		ic2EnergySource.addEnergy(32);
+		if (xSide == -5) {
+			sideFacing();
 		}
 		if (!super.worldObj.isRemote) {
 			if (speedyDelay > 0) {
@@ -69,31 +65,32 @@ public class TileEntityEssentiaGenerator extends TileEntity {
 			}
 			if (speedyTime > 0) {
 				speedyTime--;
-				}
+			}
 			if (speedyTime <= 0 && speedyDelay == 0) {
 				speedyDelay = 120;
-				findEssentia();
+				createEnergyWithEssentia();
 				if (drainCounter > 0) {
 					drainCounter--;
-					Thaumcraft.proxy.essentiaTrailFx(super.worldObj, jx, jy,
-							jz, super.xCoord + facingX, super.yCoord,
-							super.zCoord + facingZ, jr,
+					Thaumcraft.proxy.essentiaTrailFx(super.worldObj, jarXCoord,
+							jarYCoord, jarZCoord, super.xCoord + xSide,
+							super.yCoord, super.zCoord + zSide, jar,
 							Aspect.ENERGY.getColor(),
 							(float) (drainCounter * drainCounter) / 100F);
 				}
+			} else {
+				return;
 			}
 		}
-		return true;
 	}
 
-	private boolean checkJar(TileJarFillable jar) {
+	private boolean drawEssentiaFromJar(TileJarFillable jar) {
 		if (jar.doesContainerContainAmount(Aspect.ENERGY, 1)) {
-			jx = ((TileEntity) (jar)).xCoord;
-			jy = ((TileEntity) (jar)).yCoord;
-			jz = ((TileEntity) (jar)).zCoord;
+			jarXCoord = ((TileEntity) (jar)).xCoord;
+			jarYCoord = ((TileEntity) (jar)).yCoord;
+			jarZCoord = ((TileEntity) (jar)).zCoord;
 			if (!super.worldObj.isRemote) {
 				jar.takeFromContainer(Aspect.ENERGY, 1);
-				speedyTime = 300;
+				speedyTime = 100;
 				speedyDelay = 0;
 				super.worldObj.addBlockEvent(super.xCoord, super.yCoord,
 						super.zCoord, ElectricMagicTools.essentiaGeneratorID,
@@ -105,14 +102,16 @@ public class TileEntityEssentiaGenerator extends TileEntity {
 		}
 	}
 
-	public void findEssentia() {
-		if (jx != 0x7fffffff) {
-			TileEntity te = super.worldObj.getBlockTileEntity(jx, jy, jz);
+	public void createEnergyWithEssentia() {
+
+		if (jarXCoord != 0x7fffffff) {
+			TileEntity te = super.worldObj.getBlockTileEntity(jarXCoord,
+					jarYCoord, jarZCoord);
 			if (te != null && (te instanceof TileJarFillable)) {
-				if (checkJar((TileJarFillable) te)) {
+				if (drawEssentiaFromJar((TileJarFillable) te)) {
 					return;
 				}
-				jx = 0x7fffffff;
+				jarXCoord = 0x7fffffff;
 			}
 		}
 		int xx = 0;
@@ -124,17 +123,17 @@ public class TileEntityEssentiaGenerator extends TileEntity {
 					xx = super.xCoord;
 					yy = super.yCoord + y;
 					zz = super.zCoord;
-					if (facingX == 0) {
+					if (xSide == 0) {
 						xx += bb;
-						zz += cc * facingZ;
+						zz += cc * zSide;
 					} else {
 						zz += bb;
-						xx += cc * facingX;
+						xx += cc * xSide;
 					}
 					TileEntity te = super.worldObj.getBlockTileEntity(xx, yy,
 							zz);
 					if (te != null && (te instanceof TileJarFillable)
-							&& checkJar((TileJarFillable) te)) {
+							&& drawEssentiaFromJar((TileJarFillable) te)) {
 						return;
 					}
 				}
@@ -142,26 +141,26 @@ public class TileEntityEssentiaGenerator extends TileEntity {
 		}
 	}
 
-	private void getFacing() {
-		facingX = 0;
-		facingZ = 0;
+	private void sideFacing() {
+		xSide = 0;
+		zSide = 0;
 		if (super.worldObj.getBlockId(super.xCoord - 1, super.yCoord,
 				super.zCoord) == ElectricMagicTools.essentiaGeneratorID
 				&& super.worldObj.getBlockMetadata(super.xCoord - 1,
 						super.yCoord, super.zCoord) == 10) {
-			facingX = -1;
+			xSide = -1;
 		} else if (super.worldObj.getBlockId(super.xCoord + 1, super.yCoord,
 				super.zCoord) == ElectricMagicTools.essentiaGeneratorID
 				&& super.worldObj.getBlockMetadata(super.xCoord + 1,
 						super.yCoord, super.zCoord) == 10) {
-			facingX = 1;
+			xSide = 1;
 		} else if (super.worldObj.getBlockId(super.xCoord, super.yCoord,
 				super.zCoord - 1) == ElectricMagicTools.essentiaGeneratorID
 				&& super.worldObj.getBlockMetadata(super.xCoord, super.yCoord,
 						super.zCoord - 1) == 10) {
-			facingZ = -1;
+			zSide = -1;
 		} else {
-			facingZ = 1;
+			zSide = 1;
 		}
 	}
 }
