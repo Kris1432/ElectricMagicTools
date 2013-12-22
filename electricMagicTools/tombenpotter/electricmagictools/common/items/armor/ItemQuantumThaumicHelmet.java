@@ -40,7 +40,7 @@ public class ItemQuantumThaumicHelmet extends ItemArmor implements
 
 	public ItemQuantumThaumicHelmet(int id, int par3, int par4) {
 		super(id, EnumArmorMaterial.DIAMOND, par3, par4);
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setMaxDamage(27);
 		this.setMaxStackSize(1);
 

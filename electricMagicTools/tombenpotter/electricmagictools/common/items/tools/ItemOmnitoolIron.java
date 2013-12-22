@@ -31,7 +31,7 @@ public class ItemOmnitoolIron extends ItemPickaxe implements IElectricItem {
 	public ItemOmnitoolIron(int id) {
 		super(id, EnumToolMaterial.EMERALD);
 		this.efficiencyOnProperMaterial = 13F;
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setMaxDamage(27);
 		this.setMaxStackSize(1);
 	}

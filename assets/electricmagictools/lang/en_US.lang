@@ -8,6 +8,8 @@ emt.tag.Iron Omnitool=All in one!
 emt.tag.Diamond Omnitool=All the tools in one V2!
 emt.tag.Thaumium Omnitool=All the tools in one V3!
 emt.tag.Laser Focus=Concentrated Firebat
+emt.tag.Kris-tmas Focus=Ho! Ho! Ho!
+emt.tag.Shield Focus=S.H.I.E.L.D.
 
 Thaumonomicon Texts-----
 emt.text.Electric Magic Tools=Welcome to the realm of magic, associated with electricity! Our researchers worked in association with the Thaumaturges to make their preferred tools compatible with each system.
@@ -19,3 +21,5 @@ emt.text.Iron Omnitool=You have discovered a way to combine the Mining Drill and
 emt.text.Diamond Omnitool=You have discovered a way to combine the Diamond Drill and the Diamond Chainsaw, resulting in a tool capable of doing everything those two tools could do! It comes to your attention, that since Diamonds are gems, and crystals are a good catalyst of magic, this recipe is to happen in the Arcane Worktable.
 emt.text.Thaumium Omnitool=You have discovered a way to combine the Thaumium Drill and the Thaumium Chainsaw, resulting in a tool capable of doing everything those two tools could do! But do not forget that these tools were already infused with magic, which makes this Infusion quite risky.
 emt.text.Laser Focus=You have found a way to modify the Nine Hells focus, therefore provoking a rather ... explosive effect. You have found the perfect tool for focusing the power of the beasts : the mundane mining laser. This recipe is not costy, on the material side, but you cannot say so in the magic side.
+emt.text.Kris-tmas Focus=Merry Christmas! This time, you have discovered a way to spawn some friends of yours, all thanks to the magic of Christmas!
+emt.text.Shield Focus=You have studied the portable hole, understanding how you could pass through blocks with its help. You have decided to reverse its effects, and create a shield of blocks to protect yourself from danger. However, doing so will make you slow down for the duration the shield is held. The shield is said to resist to anything and everything. Watch out! The shiel will replace all the blocks nearby, not caring if anything is already there. Use at your own risk, and for your own safety.

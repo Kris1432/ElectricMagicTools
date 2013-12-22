@@ -30,7 +30,7 @@ public class ItemLaserFocus extends ItemBaseFocus {
 
 	@Override
 	public int getFocusColor() {
-		return 9999990;
+		return 9990;
 	}
 
 	@Override

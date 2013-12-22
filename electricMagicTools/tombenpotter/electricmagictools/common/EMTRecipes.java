@@ -1,12 +1,16 @@
 package electricMagicTools.tombenpotter.electricmagictools.common;
 
 import ic2.api.item.Items;
+import ic2.api.recipe.RecipeInputItemStack;
+import ic2.api.recipe.Recipes;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.crafting.InfusionRecipe;
+import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 import thaumcraft.common.config.ConfigItems;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -92,20 +96,31 @@ public class EMTRecipes {
 						Items.getItem("carbonPlate"),
 						Items.getItem("plateobsidian") });
 
-		laserFocus = ThaumcraftApi.addInfusionCraftingRecipe(
-				"Laser Focus",
-				new ItemStack(ElectricMagicTools.laserFocus),
-				6,
-				CraftingAspects.laserFocusCrafting,
-				new ItemStack(ConfigItems.itemFocusHellbat, 1),
-				new ItemStack[] {
+		laserFocus = ThaumcraftApi.addInfusionCraftingRecipe("Laser Focus",
+				new ItemStack(ElectricMagicTools.laserFocus), 6,
+				CraftingAspects.laserFocusCrafting, new ItemStack(
+						ConfigItems.itemFocusHellbat, 1), new ItemStack[] {
 						new ItemStack(Items.getItem("miningLaser").getItem(),
 								1, OreDictionary.WILDCARD_VALUE),
 						new ItemStack(Item.arrow),
 						new ItemStack(Item.gunpowder),
 						new ItemStack(Item.fireworkCharge),
 						new ItemStack(ConfigItems.itemResource, 1, 1),
-						new ItemStack(ConfigItems.itemWispEssence, 1)});
+						new ItemStack(ConfigItems.itemWispEssence, 1) });
+
+		shieldFocus = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Shield Focus",
+				new ItemStack(ElectricMagicTools.shieldFocus),
+				4,
+				CraftingAspects.shieldFocusCrafting,
+				new ItemStack(ConfigItems.itemFocusPortableHole, 1),
+				new ItemStack[] { Items.getItem("reinforcedStone"),
+						Items.getItem("reinforcedGlass"),
+						Items.getItem("reinforcedStone"),
+						Items.getItem("reinforcedGlass"),
+						new ItemStack(Block.slowSand),
+						new ItemStack(Block.obsidian),
+						new ItemStack(Block.obsidian) });
 
 		// Arcane Worktable Recipes
 
@@ -117,6 +132,14 @@ public class EMTRecipes {
 						OreDictionary.WILDCARD_VALUE), new ItemStack(Items
 						.getItem("diamondDrill").getItem(), 1,
 						OreDictionary.WILDCARD_VALUE));
+
+		christmasFocus = ThaumcraftApi.addArcaneCraftingRecipe(
+				"Kris-tmas Focus", new ItemStack(
+						ElectricMagicTools.christmasFocus),
+				CraftingAspects.christmasFocusCrafting, "XYX", "YZY", "XYX",
+				'X', new ItemStack(Block.blockSnow), 'Y', new ItemStack(
+						Block.pumpkin), 'Z', new ItemStack(
+						ConfigItems.itemFocusFrost));
 	}
 
 	public static void initRecipes() {
@@ -137,13 +160,20 @@ public class EMTRecipes {
 						OreDictionary.WILDCARD_VALUE));
 	}
 
+	public static void maceratorRecipes() {
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 16)), null, Items.getItem("smallIronDust"));
+	}
+
 	public static InfusionRecipe thaumiumDrill;
 	public static InfusionRecipe thaumiumChainsaw;
 	public static InfusionRecipe thaumicQuantumHelmet;
 	public static InfusionRecipe thaumiumOmnitool;
 	public static InfusionRecipe thaumicNanoHelmet;
 	public static InfusionRecipe laserFocus;
+	public static InfusionRecipe shieldFocus;
 	public static ShapelessArcaneRecipe diamondOmnitool;
+	public static ShapedArcaneRecipe christmasFocus;
 	public static IRecipe ironOmnitool;
 	public static IRecipe diamondChainsaw;
 }

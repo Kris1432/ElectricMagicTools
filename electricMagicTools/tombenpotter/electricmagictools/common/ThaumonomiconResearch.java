@@ -28,11 +28,11 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.diamondChainsaw));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumium Drill", "EMT", ResearchAspects.thaumiumDrillResearch, -2, -3, 6, new ItemStack(ElectricMagicTools.thaumiumDrill)).setParents("Electric Magic Tools").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Thaumium Drill", "EMT", ResearchAspects.thaumiumDrillResearch, -2, -3, 6, new ItemStack(ElectricMagicTools.thaumiumDrill)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumDrill));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumium Chainsaw","EMT", ResearchAspects.thaumiumChainsawResearch, -2, 3, 6, new ItemStack(ElectricMagicTools.thaumiumChainsaw)).setParents("Electric Magic Tools").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Thaumium Chainsaw","EMT", ResearchAspects.thaumiumChainsawResearch, -2, 3, 6, new ItemStack(ElectricMagicTools.thaumiumChainsaw)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumChainsaw));
 		 
 		 text = "1";
@@ -48,16 +48,24 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.ironOmnitool));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Diamond Omnitool", "EMT", ResearchAspects.diamondOmnitoolResearch, -6, 0, -5, new ItemStack(ElectricMagicTools.diamondOmnitool)).setParents("Electric Magic Tools").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Diamond Omnitool", "EMT", ResearchAspects.diamondOmnitoolResearch, -6, 0, -5, new ItemStack(ElectricMagicTools.diamondOmnitool)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.diamondOmnitool));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumium Omnitool", "EMT", ResearchAspects.thaumiumOmnitoolResearch, -9, 0, 5, new ItemStack(ElectricMagicTools.thaumiumOmnitool)).setParents("Thaumium Drill", "Thaumium Chainsaw", "Diamond Omnitool").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Thaumium Omnitool", "EMT", ResearchAspects.thaumiumOmnitoolResearch, -9, 0, 5, new ItemStack(ElectricMagicTools.thaumiumOmnitool)).setParents("Thaumium Drill", "Thaumium Chainsaw", "Diamond Omnitool").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumOmnitool));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Laser Focus", "EMT", ResearchAspects.laserFocusResearch, 2, 3, -2, new ItemStack(ElectricMagicTools.laserFocus)).setParents("Electric Magic Tools").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Laser Focus", "EMT", ResearchAspects.laserFocusResearch, 2, 3, -2, new ItemStack(ElectricMagicTools.laserFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.laserFocus));
+		 
+		 text = "1";
+		 research = new EMTResearchItem("Kris-tmas Focus", "EMT", ResearchAspects.christmasFocusResearch, 3, 3, -3, new ItemStack(ElectricMagicTools.christmasFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.christmasFocus));
+		 
+		 text ="1";
+		 research = new EMTResearchItem("Shield Focus", "EMT", ResearchAspects.shieldFocusResearch, 4, 3, -2, new ItemStack(ElectricMagicTools.shieldFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.shieldFocus));
 	 }
 
 }

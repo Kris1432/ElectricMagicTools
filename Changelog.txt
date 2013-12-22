@@ -7,5 +7,6 @@ Version 1.0.1 : Second release of the mod : fixes a crash due to the Omnitools.
 Version 1.0.2 : Third release of the mod : adds the Wand Focus : Laser, and a christmas easter egg. Does not work on servers.
 Version 1.0.3 : Attempt to fix the server crash of the mod. Attemps failed.
 Version 1.0.3b : Second attempt to fix the server crash, it is again working in SMP.
+Version 1.0.4 : Adds the Kris-tmas Focus and the Shield Focus
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------

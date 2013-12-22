@@ -31,7 +31,7 @@ public class ItemThaumiumChainsaw extends ItemAxe implements IElectricItem {
 	public ItemThaumiumChainsaw(int id) {
 		super(id, EnumToolMaterial.EMERALD);
 		this.efficiencyOnProperMaterial = 21F;
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setMaxDamage(27);
 		this.setMaxStackSize(1);
 	}

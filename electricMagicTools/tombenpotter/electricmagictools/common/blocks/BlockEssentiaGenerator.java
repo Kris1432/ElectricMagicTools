@@ -18,7 +18,7 @@ public class BlockEssentiaGenerator extends BlockContainer {
 
 	public BlockEssentiaGenerator(int id, Material par2Material) {
 		super(id, Material.iron);
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setHardness(4.0F);
 	}
 

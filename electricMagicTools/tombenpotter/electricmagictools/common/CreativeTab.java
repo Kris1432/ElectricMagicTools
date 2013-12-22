@@ -8,11 +8,11 @@ public class CreativeTab {
 	
 	 public static void load()
      {
-     LanguageRegistry.instance().addStringLocalization("itemGroup.tabMain", "en_US", "Electric Thaumic Tools");
+     LanguageRegistry.instance().addStringLocalization("itemGroup.tabTombenpotter", "en_US", "Electric Magic Tools");
      }
      
      
- public static CreativeTabs tabMain = new CreativeTabs("tabMain") {
+ public static CreativeTabs tabTombenpotter = new CreativeTabs("tabTombenpotter") {
      public ItemStack getIconItemStack() {
             return new ItemStack(ElectricMagicTools.thaumiumDrill);}};
 }

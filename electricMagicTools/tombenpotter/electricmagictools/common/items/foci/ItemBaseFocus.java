@@ -24,7 +24,7 @@ public abstract class ItemBaseFocus extends Item implements IWandFocus {
 		this.setMaxDamage(1);
 		this.setNoRepair();
 		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 	}
 
 	boolean hasOrnament() {

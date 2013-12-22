@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -15,12 +14,16 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import electricMagicTools.tombenpotter.electricmagictools.common.blocks.BlockEssentiaGenerator;
+import electricMagicTools.tombenpotter.electricmagictools.common.blocks.BlockShield;
 import electricMagicTools.tombenpotter.electricmagictools.common.entities.EntityLaser;
-import electricMagicTools.tombenpotter.electricmagictools.common.entities.RenderLaser;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.armor.ItemNanoThaumicHelmet;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.armor.ItemQuantumThaumicHelmet;
+import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemChristmasFocus;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemLaserFocus;
+import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemShieldFocus;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemDiamondChainsaw;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolDiamond;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolIron;
@@ -32,10 +35,10 @@ import electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntity
 @Mod(modid = ElectricMagicTools.modid, name = "Electric Magic Tools", version = "1.0.4", dependencies = "required-after:Thaumcraft ; required-after:IC2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class ElectricMagicTools {
-	
-@SidedProxy(clientSide = "electricMagicTools.tombenpotter.electricmagictools.client.ClientProxy", serverSide = "electricMagicTools.tombenpotter.electricmagictools.common.CommonProxy")
-public static CommonProxy proxy;
-    
+
+	@SidedProxy(clientSide = "electricMagicTools.tombenpotter.electricmagictools.client.ClientProxy", serverSide = "electricMagicTools.tombenpotter.electricmagictools.common.CommonProxy")
+	public static CommonProxy proxy;
+
 	public static final String modid = "Tombenpotter's ElectricMagicTools";
 
 	public static Item thaumiumDrill;
@@ -47,8 +50,11 @@ public static CommonProxy proxy;
 	public static Item thaumiumOmnitool;
 	public static Item nanoThaumicHelmet;
 	public static Item laserFocus;
+	public static Item christmasFocus;
+	public static Item shieldFocus;
 
 	public static Block essentiaGenerator;
+	public static Block shield;
 
 	public static int thaumiumDrillID;
 	public static int thaumiumChainsawID;
@@ -60,6 +66,9 @@ public static CommonProxy proxy;
 	public static int nanoThaumicHelmetID;
 	public static int laserFocusID;
 	public static int essentiaGeneratorID;
+	public static int christmasFocusID;
+	public static int shieldFocusID;
+	public static int shieldID;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -80,10 +89,13 @@ public static CommonProxy proxy;
 		nanoThaumicHelmetID = config.getItem("Nanosuit Thaumic Helmet", 4007)
 				.getInt();
 		laserFocusID = config.getItem("Laser Focus", 4008).getInt();
+		christmasFocusID = config.getItem("Kris-tmas Focus", 4009).getInt();
+		shieldFocusID = config.getItem("Shield Focus", 4010).getInt();
 
 		// Block IDs
-		essentiaGeneratorID = config.getBlock("Essentia Generator", 4000)
+		essentiaGeneratorID = config.getBlock("Essentia Generator", 2000)
 				.getInt();
+		shieldID = config.getBlock("Shield", 2001).getInt();
 
 		config.save();
 
@@ -92,7 +104,7 @@ public static CommonProxy proxy;
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.load();
-		
+
 		CreativeTab.load();
 		thaumiumDrill = new ItemThaumiumDrill(thaumiumDrillID)
 				.setUnlocalizedName("thaumiumdrill");
@@ -113,6 +125,10 @@ public static CommonProxy proxy;
 				.setUnlocalizedName("nanothaumichelmet");
 		laserFocus = new ItemLaserFocus(laserFocusID)
 				.setUnlocalizedName("laserfocus");
+		christmasFocus = new ItemChristmasFocus(christmasFocusID)
+				.setUnlocalizedName("christmasfocus");
+		shieldFocus = new ItemShieldFocus(shieldFocusID)
+				.setUnlocalizedName("shieldfocus");
 
 		LanguageRegistry.addName(thaumiumDrill, "Thaumium Drill");
 		LanguageRegistry.addName(thaumiumChainsaw, "Thaumium Chainsaw");
@@ -124,6 +140,19 @@ public static CommonProxy proxy;
 		LanguageRegistry.addName(thaumiumOmnitool, "Thaumium Omnitool");
 		LanguageRegistry.addName(nanoThaumicHelmet, "Nanosuit Thaumic Helmet");
 		LanguageRegistry.addName(laserFocus, "WandFocus: Laser");
+		LanguageRegistry.addName(christmasFocus, "Wand Focus : Kris-tmas");
+		LanguageRegistry.addName(shieldFocus, "Wand Focus : Shield");
+		
+		essentiaGenerator = new BlockEssentiaGenerator(essentiaGeneratorID,
+				Material.iron).setUnlocalizedName("essentiagenerator");
+		shield = new BlockShield(shieldID).setUnlocalizedName("shield");
+		
+		GameRegistry.registerTileEntity(TileEntityEssentiaGenerator.class,
+				"tileentityessentiagenerator");
+		
+		LanguageRegistry.addName(essentiaGenerator, "Essentia Generator");
+		LanguageRegistry.addName(shield, "Shield Block");
+
 		EMTRecipes.initRecipes();
 
 		EntityRegistry.registerModEntity(EntityLaser.class, "entityLaser", 1,
@@ -132,17 +161,13 @@ public static CommonProxy proxy;
 				"entity.Tombenpotter_ElectricMagicTools.EntityLaser.name",
 				"Laser");
 
-	//	essentiaGenerator = new BlockEssentiaGenerator(essentiaGeneratorID, Material.iron);
-	//	GameRegistry.registerBlock(essentiaGenerator, "essentiagenerator");
-	//	GameRegistry.registerTileEntity(TileEntityEssentiaGenerator.class, "tileentityessentiagenerator");
-	//	LanguageRegistry.addName(essentiaGenerator, "Essentia Generator");
-		
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		EMTRecipes.postInitRecipes();
+		EMTRecipes.maceratorRecipes();
 		ThaumonomiconResearch.addResearchTab();
 		ThaumonomiconResearch.addResearch();
-	}
+	}		
 }

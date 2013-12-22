@@ -22,7 +22,7 @@ public class ItemOmnitoolThaumium extends ItemOmnitoolDiamond{
 	public ItemOmnitoolThaumium(int id) {
 		super(id);
 		this.efficiencyOnProperMaterial = 21F;
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setMaxDamage(27);
 		this.setMaxStackSize(1);
 

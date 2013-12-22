@@ -19,7 +19,7 @@ public class ItemNanoThaumicHelmet extends ItemQuantumThaumicHelmet {
 
 	public ItemNanoThaumicHelmet(int id, int par3, int par4) {
 		super(id, par3, par4);
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setMaxDamage(27);
 		this.setMaxStackSize(1);
 	}

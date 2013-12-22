@@ -22,7 +22,7 @@ public class ItemOmnitoolDiamond extends ItemOmnitoolIron{
 	public ItemOmnitoolDiamond(int id) {
 		super(id);
 		this.efficiencyOnProperMaterial = 16F;
-		this.setCreativeTab(CreativeTab.tabMain);
+		this.setCreativeTab(CreativeTab.tabTombenpotter);
 		this.setMaxDamage(27);
 		this.setMaxStackSize(1);
 	}
