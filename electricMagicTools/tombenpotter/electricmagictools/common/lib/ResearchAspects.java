@@ -14,4 +14,5 @@ public class ResearchAspects {
 	public static AspectList laserFocusResearch = new AspectList().add(Aspect.FIRE, 3).add(Aspect.DEATH, 2).add(Aspect.WEAPON, 3);
 	public static AspectList christmasFocusResearch = new AspectList().add(Aspect.ICE, 2).add(Aspect.BEAST, 5).add(Aspect.LIFE, 6);
 	public static AspectList shieldFocusResearch = new AspectList().add(Aspect.ARMOR, 5).add(Aspect.AIR, 2).add(Aspect.CRYSTAL, 3).add(Aspect.TRAP, 2);
+	public static AspectList electricGogglesResearch = new AspectList().add(Aspect.ARMOR, 8).add(Aspect.ENERGY, 5).add(Aspect.SENSES, 6);
 }

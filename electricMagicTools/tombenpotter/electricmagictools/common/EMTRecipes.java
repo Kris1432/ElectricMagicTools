@@ -140,6 +140,17 @@ public class EMTRecipes {
 				'X', new ItemStack(Block.blockSnow), 'Y', new ItemStack(
 						Block.pumpkin), 'Z', new ItemStack(
 						ConfigItems.itemFocusFrost));
+
+		electricGoggles = ThaumcraftApi.addArcaneCraftingRecipe(
+				"Electric Goggles", new ItemStack(
+						ElectricMagicTools.electricGoggles),
+				CraftingAspects.electricGogglesCrafting, " Y ", "AZA", "BXB",
+				'Z', new ItemStack(ConfigItems.itemGoggles), 'X', Items
+						.getItem("electronicCircuit"), 'Y', new ItemStack(
+						Item.helmetDiamond), 'A',
+				new ItemStack(Items.getItem("chargedReBattery").getItem(), 1,
+						OreDictionary.WILDCARD_VALUE), 'B', Item.redstoneRepeater);
+
 	}
 
 	public static void initRecipes() {
@@ -160,11 +171,6 @@ public class EMTRecipes {
 						OreDictionary.WILDCARD_VALUE));
 	}
 
-	public static void maceratorRecipes() {
-		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
-				ConfigItems.itemNugget, 16)), null, Items.getItem("smallIronDust"));
-	}
-
 	public static InfusionRecipe thaumiumDrill;
 	public static InfusionRecipe thaumiumChainsaw;
 	public static InfusionRecipe thaumicQuantumHelmet;
@@ -174,6 +180,7 @@ public class EMTRecipes {
 	public static InfusionRecipe shieldFocus;
 	public static ShapelessArcaneRecipe diamondOmnitool;
 	public static ShapedArcaneRecipe christmasFocus;
+	public static ShapedArcaneRecipe electricGoggles;
 	public static IRecipe ironOmnitool;
 	public static IRecipe diamondChainsaw;
 }

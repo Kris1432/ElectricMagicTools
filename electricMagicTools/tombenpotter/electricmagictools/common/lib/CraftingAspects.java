@@ -14,4 +14,5 @@ public class CraftingAspects {
 	public static AspectList laserFocusCrafting = new AspectList().add(Aspect.FIRE, 20).add(Aspect.MOTION, 16).add(Aspect.WEAPON, 25).add(Aspect.DEATH, 15);
 	public static AspectList christmasFocusCrafting = new AspectList().add(Aspect.ORDER, 35).add(Aspect.AIR, 29);
 	public static AspectList shieldFocusCrafting = new AspectList().add(Aspect.AIR, 16).add(Aspect.ARMOR, 30).add(Aspect.CRYSTAL, 20).add(Aspect.TRAP, 25).add(Aspect.LIFE, 18);
+	public static AspectList electricGogglesCrafting = new AspectList().add(Aspect.AIR, 25).add(Aspect.ORDER, 25).add(Aspect.WATER, 25);
 }

@@ -2,6 +2,7 @@ Thaumonomicon Names-----
 emt.tag.Electric Magic Tools=Combining electricity and Magic
 emt.tag.Thaumium Drill=Magic drilling
 emt.tag.Thaumium Chainsaw=Magic Chopping and attacking
+emt.tag.Electric Goggles=Electric and revealing
 emt.tag.Thaumic Nanosuit Helmet=Nano and revealing
 emt.tag.Thaumic Quantum Helmet=Quantum and revealing
 emt.tag.Iron Omnitool=All in one!
@@ -15,6 +16,7 @@ Thaumonomicon Texts-----
 emt.text.Electric Magic Tools=Welcome to the realm of magic, associated with electricity! Our researchers worked in association with the Thaumaturges to make their preferred tools compatible with each system.
 emt.text.Thaumium Drill=You have discovered a way to infuse Thaumium with mundane electricity. You have managed to bring the diamond drill to a level higher than its previous state.               Nevertheless, these ameliorations do not come without drawbacks : during the magical process, the Drill lost its ability to place torches.      The Thaumium Drill itslef is not near the level reached by the Iridium Drill, so consider it as a mid-tier tool.
 emt.text.Thaumium Chainsaw=You have discovered a way to infuse Thaumium with mundane electricity. You have managed to bring the chainsaw to a level higher than its previous state.               Nevertheless, these ameliorations do not come without drawbacks : during the magical process, the Chainsaw lost its ability to shear.
+emt.text.Electric Goggles=You have discovered a way to merge your goggles of revealing with mundane electricity. You can now recharge your goggles using EU, and see everything as it was before. You need a diamond helmet to be able to merge electricity and your goggles, getting a better protection out of the deal.
 emt.text.Thaumic Nanosuit Helmet=You have discovered a way to infuse advanced technological armor with magic. You have managed to bring the nanosuit helmet to a magic level so important that it now shows nodes and aspects. However, during the magical process, you lost the ability to control the nightvision effect of your helmet.
 emt.text.Thaumic Quantum Helmet=You have discovered a way to infuse highly advanced technological armor with magic. You have managed to bring the quantum helmet to a magic level so important that it now shows nodes and aspects. However, during the magical process, you lost the ability to control the nightvision effect and get fed by your helmet.
 emt.text.Iron Omnitool=You have discovered a way to combine the Mining Drill and the Chainsaw, resulting in a tool capable of doing everything those two tools could do! It comes to your attention, that since both tools are such low-level, this recipe is to happen in a mundane crafting bench.

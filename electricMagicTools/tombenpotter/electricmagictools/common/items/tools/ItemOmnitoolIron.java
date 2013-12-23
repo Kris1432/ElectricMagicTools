@@ -2,8 +2,11 @@ package electricMagicTools.tombenpotter.electricmagictools.common.items.tools;
 
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
+import ic2.api.item.IElectricItemManager;
 
 import java.util.List;
+
+import cofh.cofh.api.energy.IEnergyContainerItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -21,7 +24,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
 
-public class ItemOmnitoolIron extends ItemPickaxe implements IElectricItem {
+public class ItemOmnitoolIron extends ItemPickaxe implements IElectricItem , IEnergyContainerItem{
 
 	public int maxCharge = 20000;
 	private final int cost = 100;
@@ -161,5 +164,27 @@ public class ItemOmnitoolIron extends ItemPickaxe implements IElectricItem {
 		ElectricItem.manager.use(par1ItemStack, snowCost, par3EntityPlayer);
 		}
 		return par1ItemStack;
+	}
+
+	@Override
+	public int receiveEnergy(ItemStack container, int maxReceive,
+			boolean simulate) {
+		return 200;
+	}
+
+	@Override
+	public int extractEnergy(ItemStack container, int maxExtract,
+			boolean simulate) {
+		return 0;
+	}
+
+	@Override
+	public int getEnergyStored(ItemStack container) {
+		return 0;
+	}
+
+	@Override
+	public int getMaxEnergyStored(ItemStack container) {
+		return maxCharge;
 	}
 }

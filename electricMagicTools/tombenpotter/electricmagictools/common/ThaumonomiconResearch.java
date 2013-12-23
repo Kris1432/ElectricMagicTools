@@ -36,11 +36,15 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumChainsaw));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumic Nanosuit Helmet", "EMT", ResearchAspects.thaumicNanoHelmet, 1, -2, 3, new ItemStack(ElectricMagicTools.nanoThaumicHelmet)).setParents("Electric Magic Tools").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Electric Goggles", "EMT", ResearchAspects.electricGogglesResearch, 1, -2, 3, new ItemStack(ElectricMagicTools.electricGoggles)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.electricGoggles));
+		 
+		 text = "1";
+		 research = new EMTResearchItem("Thaumic Nanosuit Helmet", "EMT", ResearchAspects.thaumicNanoHelmet, 2, -2, 3, new ItemStack(ElectricMagicTools.nanoThaumicHelmet)).setParents("Electric Goggles").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumicNanoHelmet));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumic Quantum Helmet", "EMT", ResearchAspects.thaumicQuantumHelmet, 3, -2, 3, new ItemStack(ElectricMagicTools.quantumThaumicHelmet)).setParents("Thaumic Nanosuit Helmet").setConcealed().registerResearchItem();
+		 research = new EMTResearchItem("Thaumic Quantum Helmet", "EMT", ResearchAspects.thaumicQuantumHelmet, 3, -2, 3, new ItemStack(ElectricMagicTools.quantumThaumicHelmet)).setParents("Thaumic Nanosuit Helmet").setConcealed().setComplexity(4).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumicQuantumHelmet));
 		 
 		 text = "1";
@@ -67,5 +71,4 @@ public class ThaumonomiconResearch {
 		 research = new EMTResearchItem("Shield Focus", "EMT", ResearchAspects.shieldFocusResearch, 4, 3, -2, new ItemStack(ElectricMagicTools.shieldFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.shieldFocus));
 	 }
-
 }
