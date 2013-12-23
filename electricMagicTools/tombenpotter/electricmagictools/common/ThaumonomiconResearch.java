@@ -28,11 +28,11 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.diamondChainsaw));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumium Drill", "EMT", ResearchAspects.thaumiumDrillResearch, -2, -3, 6, new ItemStack(ElectricMagicTools.thaumiumDrill)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
+		 research = new EMTResearchItem("Thaumium Drill", "EMT", ResearchAspects.thaumiumDrillResearch, -1, -2, 6, new ItemStack(ElectricMagicTools.thaumiumDrill)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumDrill));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumium Chainsaw","EMT", ResearchAspects.thaumiumChainsawResearch, -2, 3, 6, new ItemStack(ElectricMagicTools.thaumiumChainsaw)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
+		 research = new EMTResearchItem("Thaumium Chainsaw","EMT", ResearchAspects.thaumiumChainsawResearch, -2, -2, 6, new ItemStack(ElectricMagicTools.thaumiumChainsaw)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumChainsaw));
 		 
 		 text = "1";
@@ -48,15 +48,15 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumicQuantumHelmet));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Iron Omnitool", "EMT", new AspectList(), -3, 0, -5, new ItemStack(ElectricMagicTools.ironOmnitool)).setParents("Electric Magic Tools").setAutoUnlock().registerResearchItem();
+		 research = new EMTResearchItem("Iron Omnitool", "EMT", new AspectList(), -2, 0, -5, new ItemStack(ElectricMagicTools.ironOmnitool)).setParents("Electric Magic Tools").setAutoUnlock().registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.ironOmnitool));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Diamond Omnitool", "EMT", ResearchAspects.diamondOmnitoolResearch, -6, 0, -5, new ItemStack(ElectricMagicTools.diamondOmnitool)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
+		 research = new EMTResearchItem("Diamond Omnitool", "EMT", ResearchAspects.diamondOmnitoolResearch, -4, 0, -5, new ItemStack(ElectricMagicTools.diamondOmnitool)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.diamondOmnitool));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Thaumium Omnitool", "EMT", ResearchAspects.thaumiumOmnitoolResearch, -9, 0, 5, new ItemStack(ElectricMagicTools.thaumiumOmnitool)).setParents("Thaumium Drill", "Thaumium Chainsaw", "Diamond Omnitool").setConcealed().setComplexity(3).registerResearchItem();
+		 research = new EMTResearchItem("Thaumium Omnitool", "EMT", ResearchAspects.thaumiumOmnitoolResearch, -6, 0, 5, new ItemStack(ElectricMagicTools.thaumiumOmnitool)).setParentsHidden("Thaumium Drill", "Thaumium Chainsaw").setParents("Diamond Omnitool").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumOmnitool));
 		 
 		 text = "1";
@@ -64,11 +64,23 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.laserFocus));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Kris-tmas Focus", "EMT", ResearchAspects.christmasFocusResearch, 3, 3, -3, new ItemStack(ElectricMagicTools.christmasFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
+		 research = new EMTResearchItem("Kris-tmas Focus", "EMT", ResearchAspects.christmasFocusResearch, 3, 3, -2, new ItemStack(ElectricMagicTools.christmasFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(2).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.christmasFocus));
 		 
-		 text ="1";
+		 text = "1";
 		 research = new EMTResearchItem("Shield Focus", "EMT", ResearchAspects.shieldFocusResearch, 4, 3, -2, new ItemStack(ElectricMagicTools.shieldFocus)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.shieldFocus));
+		 
+		 text = "1";
+		 research = new EMTResearchItem("Potentia Generator", "EMT", ResearchAspects.potentiaGeneratorResearch, -2, 3, -3, new ItemStack(ElectricMagicTools.potentiaGenerator)).setParents("Electric Magic Tools").setConcealed().setComplexity(5).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.potentiaGenerator));
+		 
+		 text ="1";
+		 research = new EMTResearchItem("Ignis Generator", "EMT", ResearchAspects.ignisGeneratorResearch, -3, 4, -3, new ItemStack(ElectricMagicTools.ignisGenerator)).setParents("Potentia Generator").setConcealed().setComplexity(3).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.ignisGenerator));
+		 
+		 text ="1";
+		 research = new EMTResearchItem("Auram Generator", "EMT", ResearchAspects.auramGeneratorResearch, -1, 4, -3, new ItemStack(ElectricMagicTools.auramGenerator)).setParents("Potentia Generator").setConcealed().setComplexity(3).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.auramGenerator));
 	 }
 }

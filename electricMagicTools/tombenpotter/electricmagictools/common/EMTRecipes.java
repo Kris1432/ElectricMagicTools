@@ -1,17 +1,17 @@
 package electricMagicTools.tombenpotter.electricmagictools.common;
 
 import ic2.api.item.Items;
-import ic2.api.recipe.RecipeInputItemStack;
-import ic2.api.recipe.Recipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.crafting.ShapelessArcaneRecipe;
+import thaumcraft.common.config.ConfigBlocks;
 import thaumcraft.common.config.ConfigItems;
 import cpw.mods.fml.common.registry.GameRegistry;
 import electricMagicTools.tombenpotter.electricmagictools.common.lib.CraftingAspects;
@@ -122,6 +122,21 @@ public class EMTRecipes {
 						new ItemStack(Block.obsidian),
 						new ItemStack(Block.obsidian) });
 
+		potentiaGenerator = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Potentia Generator",
+				new ItemStack(ElectricMagicTools.potentiaGenerator),
+				6,
+				CraftingAspects.potentiaGeneratorCrafting,
+				Items.getItem("semifluidGenerator"),
+				new ItemStack[] { new ItemStack(Item.diamond),
+						new ItemStack(ConfigItems.itemFocusTrade),
+						new ItemStack(Block.hopperBlock),
+						new ItemStack(ConfigBlocks.blockJar),
+						Items.getItem("mvTransformer"),
+						Items.getItem("advancedMachine"),
+						Items.getItem("orewashingplant"),
+						Items.getItem("scrap") });
+
 		// Arcane Worktable Recipes
 
 		diamondOmnitool = ThaumcraftApi.addShapelessArcaneCraftingRecipe(
@@ -149,7 +164,20 @@ public class EMTRecipes {
 						.getItem("electronicCircuit"), 'Y', new ItemStack(
 						Item.helmetDiamond), 'A',
 				new ItemStack(Items.getItem("chargedReBattery").getItem(), 1,
-						OreDictionary.WILDCARD_VALUE), 'B', Item.redstoneRepeater);
+						OreDictionary.WILDCARD_VALUE), 'B',
+				Item.redstoneRepeater);
+
+		// Crucible Recipes
+
+		ignisGenerator = ThaumcraftApi.addCrucibleRecipe("Ignis Generator",
+				new ItemStack(ElectricMagicTools.ignisGenerator),
+				new ItemStack(ElectricMagicTools.potentiaGenerator),
+				CraftingAspects.ignisGeneratorCrafting);
+		
+		auramGenerator = ThaumcraftApi.addCrucibleRecipe("Auram Generator",
+				new ItemStack(ElectricMagicTools.auramGenerator),
+				new ItemStack(ElectricMagicTools.potentiaGenerator),
+				CraftingAspects.auramGeneratorCrafting);
 
 	}
 
@@ -178,9 +206,12 @@ public class EMTRecipes {
 	public static InfusionRecipe thaumicNanoHelmet;
 	public static InfusionRecipe laserFocus;
 	public static InfusionRecipe shieldFocus;
+	public static InfusionRecipe potentiaGenerator;
 	public static ShapelessArcaneRecipe diamondOmnitool;
 	public static ShapedArcaneRecipe christmasFocus;
 	public static ShapedArcaneRecipe electricGoggles;
+	public static CrucibleRecipe ignisGenerator;
+	public static CrucibleRecipe auramGenerator;
 	public static IRecipe ironOmnitool;
 	public static IRecipe diamondChainsaw;
 }
