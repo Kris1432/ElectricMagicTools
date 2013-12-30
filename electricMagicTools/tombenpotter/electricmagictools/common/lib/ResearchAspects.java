@@ -18,4 +18,5 @@ public class ResearchAspects {
 	public static AspectList potentiaGeneratorResearch = new AspectList().add(Aspect.ENERGY, 4).add(Aspect.EXCHANGE, 4).add(Aspect.METAL, 3);
 	public static AspectList ignisGeneratorResearch = new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.FIRE, 3);
 	public static AspectList auramGeneratorResearch = new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AURA, 3);
+	public static AspectList streamChainsawResearch = new AspectList().add(Aspect.TOOL, 3).add(Aspect.TREE, 3).add(Aspect.WATER, 6).add(Aspect.ENERGY, 4);
 }

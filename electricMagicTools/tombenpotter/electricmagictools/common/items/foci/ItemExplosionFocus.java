@@ -12,12 +12,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import electricMagicTools.tombenpotter.electricmagictools.common.entities.EntityLaser;
 
-public class ItemLaserFocus extends ItemBaseFocus {
+public class ItemExplosionFocus extends ItemBaseFocus {
 
 	private static final AspectList visCost = new AspectList().add(Aspect.FIRE,
 			200).add(Aspect.ENTROPY, 200);
 
-	public ItemLaserFocus(int id) {
+	public ItemExplosionFocus(int id) {
 		super(id);
 	}
 
@@ -25,7 +25,7 @@ public class ItemLaserFocus extends ItemBaseFocus {
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		this.itemIcon = iconRegister
-				.registerIcon("electricmagictools:laserfocus");
+				.registerIcon("electricmagictools:explosionfocus");
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class ItemLaserFocus extends ItemBaseFocus {
 
 	@Override
 	public String getSortingHelper(ItemStack itemstack) {
-		return "LASER";
+		return "EXPLOSION";
 	}
 
 	@Override

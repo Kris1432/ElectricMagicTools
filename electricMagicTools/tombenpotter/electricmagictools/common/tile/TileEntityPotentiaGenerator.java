@@ -1,6 +1,7 @@
 package electricMagicTools.tombenpotter.electricmagictools.common.tile;
 
 import ic2.api.energy.prefab.BasicSource;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 import thaumcraft.api.aspects.Aspect;
@@ -12,13 +13,13 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 	int y;
 	int z;
 	public ForgeDirection orientation;
-	private BasicSource energySource;
 
 	public TileEntityPotentiaGenerator() {
-		this.energySource = new BasicSource(this, 1000000000, 2);
 		orientation = ForgeDirection.getOrientation(1);
 	}
 
+	private BasicSource energySource = new BasicSource(this, 1000000000, 2);
+	
 	@Override
 	public void updateEntity() {
 		energySource.updateEntity();
@@ -30,17 +31,6 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 				energySource.addEnergy(6500);
 			}
 		}
-	}
-
-	@Override
-	public void onChunkUnload() {
-		energySource.onChunkUnload();
-	}
-
-	@Override
-	public void invalidate() {
-		energySource.invalidate();
-		super.invalidate();
 	}
 
 	private boolean checkPotentia(TileJarFillable jar) {
@@ -95,5 +85,17 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void onChunkUnload() {
+		energySource.onChunkUnload();
+	}
+
+	@Override
+	public void invalidate() {
+		energySource.invalidate();
+		super.invalidate();
+		onChunkUnload();
 	}
 }

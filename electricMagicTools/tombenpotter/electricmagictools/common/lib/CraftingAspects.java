@@ -18,4 +18,5 @@ public class CraftingAspects {
 	public static AspectList potentiaGeneratorCrafting = new AspectList().add(Aspect.ENERGY, 40).add(Aspect.MAGIC, 30).add(Aspect.METAL, 35).add(Aspect.EXCHANGE, 30);
 	public static AspectList ignisGeneratorCrafting = new AspectList().add(Aspect.FIRE, 10).add(Aspect.EXCHANGE, 10);
 	public static AspectList auramGeneratorCrafting = new AspectList().add(Aspect.AURA, 10).add(Aspect.EXCHANGE, 10);
+	public static AspectList streamChaisnawCrafting = new AspectList().add(Aspect.ENERGY, 50).add(Aspect.TREE, 40).add(Aspect.TOOL, 35).add(Aspect.WATER,  20);
 }

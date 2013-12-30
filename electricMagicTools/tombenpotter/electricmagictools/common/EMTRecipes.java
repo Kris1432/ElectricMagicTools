@@ -96,8 +96,9 @@ public class EMTRecipes {
 						Items.getItem("carbonPlate"),
 						Items.getItem("plateobsidian") });
 
-		laserFocus = ThaumcraftApi.addInfusionCraftingRecipe("Laser Focus",
-				new ItemStack(ElectricMagicTools.laserFocus), 6,
+		explosionFocus = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Explosion Focus", new ItemStack(
+						ElectricMagicTools.explosionFocus), 6,
 				CraftingAspects.laserFocusCrafting, new ItemStack(
 						ConfigItems.itemFocusHellbat, 1), new ItemStack[] {
 						new ItemStack(Items.getItem("miningLaser").getItem(),
@@ -137,6 +138,23 @@ public class EMTRecipes {
 						Items.getItem("orewashingplant"),
 						Items.getItem("scrap") });
 
+		streamChainsaw = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Chainsaw of the Stream",
+				new ItemStack(ElectricMagicTools.streamChainsaw),
+				6,
+				CraftingAspects.streamChaisnawCrafting,
+				new ItemStack(ElectricMagicTools.thaumiumChainsaw, 1,
+						OreDictionary.WILDCARD_VALUE),
+				new ItemStack[] {
+						new ItemStack(Item.bucketWater),
+						new ItemStack(ConfigItems.itemAxeElemental),
+						new ItemStack(ConfigBlocks.blockMagicalLog),
+						new ItemStack(Items.getItem("lapotronCrystal")
+								.getItem(), 1, OreDictionary.WILDCARD_VALUE),
+						Items.getItem("compressedPlantBall"),
+						Items.getItem("iridiumPlate"),
+						Items.getItem("overclockerUpgrade") });
+
 		// Arcane Worktable Recipes
 
 		diamondOmnitool = ThaumcraftApi.addShapelessArcaneCraftingRecipe(
@@ -173,7 +191,7 @@ public class EMTRecipes {
 				new ItemStack(ElectricMagicTools.ignisGenerator),
 				new ItemStack(ElectricMagicTools.potentiaGenerator),
 				CraftingAspects.ignisGeneratorCrafting);
-		
+
 		auramGenerator = ThaumcraftApi.addCrucibleRecipe("Auram Generator",
 				new ItemStack(ElectricMagicTools.auramGenerator),
 				new ItemStack(ElectricMagicTools.potentiaGenerator),
@@ -204,9 +222,10 @@ public class EMTRecipes {
 	public static InfusionRecipe thaumicQuantumHelmet;
 	public static InfusionRecipe thaumiumOmnitool;
 	public static InfusionRecipe thaumicNanoHelmet;
-	public static InfusionRecipe laserFocus;
+	public static InfusionRecipe explosionFocus;
 	public static InfusionRecipe shieldFocus;
 	public static InfusionRecipe potentiaGenerator;
+	public static InfusionRecipe streamChainsaw;
 	public static ShapelessArcaneRecipe diamondOmnitool;
 	public static ShapedArcaneRecipe christmasFocus;
 	public static ShapedArcaneRecipe electricGoggles;

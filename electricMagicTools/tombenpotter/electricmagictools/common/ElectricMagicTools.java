@@ -23,17 +23,15 @@ import electricMagicTools.tombenpotter.electricmagictools.common.items.armor.Ite
 import electricMagicTools.tombenpotter.electricmagictools.common.items.armor.ItemNanoThaumicHelmet;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.armor.ItemQuantumThaumicHelmet;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemChristmasFocus;
-import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemLaserFocus;
+import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemExplosionFocus;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.foci.ItemShieldFocus;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemDiamondChainsaw;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolDiamond;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolIron;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolThaumium;
+import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemStreamChainsaw;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemThaumiumChainsaw;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemThaumiumDrill;
-import electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityAuramGenerator;
-import electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityIgnisGenerator;
-import electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityPotentiaGenerator;
 
 @Mod(modid = ElectricMagicTools.modid, name = "Electric Magic Tools", version = "1.0.4", dependencies = "required-after:Thaumcraft ; required-after:IC2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -52,10 +50,11 @@ public class ElectricMagicTools {
 	public static Item diamondOmnitool;
 	public static Item thaumiumOmnitool;
 	public static Item nanoThaumicHelmet;
-	public static Item laserFocus;
+	public static Item explosionFocus;
 	public static Item christmasFocus;
 	public static Item shieldFocus;
 	public static Item electricGoggles;
+	public static Item streamChainsaw;
 
 	public static Block potentiaGenerator;
 	public static Block shield;
@@ -70,7 +69,7 @@ public class ElectricMagicTools {
 	public static int diamondOmnitoolID;
 	public static int thaumiumOmnitoolID;
 	public static int nanoThaumicHelmetID;
-	public static int laserFocusID;
+	public static int explosionFocusID;
 	public static int potentiaGeneratorID;
 	public static int christmasFocusID;
 	public static int shieldFocusID;
@@ -78,6 +77,7 @@ public class ElectricMagicTools {
 	public static int electricGogglesID;
 	public static int ignisGeneratorID;
 	public static int auramGeneratorID;
+	public static int streamChainsawID;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -97,10 +97,12 @@ public class ElectricMagicTools {
 		thaumiumOmnitoolID = config.getItem("Thaumium Omnitool", 4006).getInt();
 		nanoThaumicHelmetID = config.getItem("Nanosuit Thaumic Helmet", 4007)
 				.getInt();
-		laserFocusID = config.getItem("Laser Focus", 4008).getInt();
+		explosionFocusID = config.getItem("Explosion Focus", 4008).getInt();
 		christmasFocusID = config.getItem("Kris-tmas Focus", 4009).getInt();
 		shieldFocusID = config.getItem("Shield Focus", 4010).getInt();
 		electricGogglesID = config.getItem("Electric Goggles", 4011).getInt();
+		streamChainsawID = config.getItem("Chainsaw of the Stream", 4012)
+				.getInt();
 
 		// Block IDs
 		potentiaGeneratorID = config.getBlock("Potentia Generator", 1500)
@@ -135,7 +137,7 @@ public class ElectricMagicTools {
 				.setUnlocalizedName("thaumiumomnitool");
 		nanoThaumicHelmet = new ItemNanoThaumicHelmet(nanoThaumicHelmetID, 3, 0)
 				.setUnlocalizedName("nanothaumichelmet");
-		laserFocus = new ItemLaserFocus(laserFocusID)
+		explosionFocus = new ItemExplosionFocus(explosionFocusID)
 				.setUnlocalizedName("laserfocus");
 		christmasFocus = new ItemChristmasFocus(christmasFocusID)
 				.setUnlocalizedName("christmasfocus");
@@ -143,6 +145,8 @@ public class ElectricMagicTools {
 				.setUnlocalizedName("shieldfocus");
 		electricGoggles = new ItemElectricGoggles(electricGogglesID, 3, 0)
 				.setUnlocalizedName("electricgoggles");
+		streamChainsaw = new ItemStreamChainsaw(streamChainsawID)
+				.setUnlocalizedName("streamchainsaw");
 
 		LanguageRegistry.addName(thaumiumDrill, "Thaumium Drill");
 		LanguageRegistry.addName(thaumiumChainsaw, "Thaumium Chainsaw");
@@ -153,11 +157,12 @@ public class ElectricMagicTools {
 		LanguageRegistry.addName(diamondOmnitool, "Diamond Omnitool");
 		LanguageRegistry.addName(thaumiumOmnitool, "Thaumium Omnitool");
 		LanguageRegistry.addName(nanoThaumicHelmet, "Nanosuit Thaumic Helmet");
-		LanguageRegistry.addName(laserFocus, "WandFocus: Laser");
+		LanguageRegistry.addName(explosionFocus, "Wand Focus: Explosion");
 		LanguageRegistry.addName(christmasFocus, "Wand Focus : Kris-tmas");
 		LanguageRegistry.addName(shieldFocus, "Wand Focus : Shield");
 		LanguageRegistry.addName(electricGoggles,
 				"Electric Goggles of Revealing");
+		LanguageRegistry.addName(streamChainsaw, "Chainsaw of the Stream");
 
 		potentiaGenerator = new BlockPotentiaGenerator(potentiaGeneratorID,
 				Material.iron).setUnlocalizedName("potentiagenerator");
@@ -172,12 +177,18 @@ public class ElectricMagicTools {
 		GameRegistry.registerBlock(ignisGenerator, "Ignis Generator");
 		GameRegistry.registerBlock(auramGenerator, "Auram Generator");
 
-		GameRegistry.registerTileEntity(TileEntityPotentiaGenerator.class,
-				"tileentityessentiagenerator");
-		GameRegistry.registerTileEntity(TileEntityIgnisGenerator.class,
-				"tileentityignisgenerator");
-		GameRegistry.registerTileEntity(TileEntityAuramGenerator.class,
-				"tileentityauramgenerator");
+		GameRegistry
+				.registerTileEntity(
+						electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityPotentiaGenerator.class,
+						"tileentityessentiagenerator");
+		GameRegistry
+				.registerTileEntity(
+						electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityIgnisGenerator.class,
+						"tileentityignisgenerator");
+		GameRegistry
+				.registerTileEntity(
+						electricMagicTools.tombenpotter.electricmagictools.common.tile.TileEntityAuramGenerator.class,
+						"tileentityauramgenerator");
 
 		LanguageRegistry.addName(potentiaGenerator, "Potentia Generator");
 		LanguageRegistry.addName(shield, "Shield Block");
@@ -188,10 +199,11 @@ public class ElectricMagicTools {
 
 		EntityRegistry.registerModEntity(EntityLaser.class, "entityLaser", 1,
 				this, 80, 3, true);
+		
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.Tombenpotter_ElectricMagicTools.EntityLaser.name",
 				"Laser");
-
+	
 	}
 
 	@EventHandler

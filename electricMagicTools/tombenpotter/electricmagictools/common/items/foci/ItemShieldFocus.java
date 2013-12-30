@@ -54,6 +54,13 @@ public class ItemShieldFocus extends ItemBaseFocus {
 	@Override
 	public void onUsingFocusTick(ItemStack itemstack, EntityPlayer player,
 			int time) {
+		
+		 player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 1999999999, 100, false));
+		 player.setVelocity(0, 0, 0);
+		 player.motionX = 0;
+		 player.motionY = 0;
+		 player.motionZ = 0;
+		
 		ItemWandCasting wand = (ItemWandCasting) itemstack.getItem();
 		if (wand.consumeAllVis(itemstack, player, getVisCost(), true)) {
 			int x = MathHelper.floor_double(player.posX);
@@ -112,8 +119,6 @@ public class ItemShieldFocus extends ItemBaseFocus {
 						ElectricMagicTools.shield.blockID);
 				player.worldObj.setBlock(x - 2, y + 1, z - 1,
 						ElectricMagicTools.shield.blockID);
-				
-				 player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 100, 100, false));
 			}
 		}
 	}

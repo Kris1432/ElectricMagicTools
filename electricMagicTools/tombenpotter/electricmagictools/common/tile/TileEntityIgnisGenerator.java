@@ -1,6 +1,7 @@
 package electricMagicTools.tombenpotter.electricmagictools.common.tile;
 
 import ic2.api.energy.prefab.BasicSource;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 import thaumcraft.api.aspects.Aspect;
@@ -12,10 +13,9 @@ public class TileEntityIgnisGenerator extends TileEntity {
 	int y;
 	int z;
 	public ForgeDirection orientation;
-	private BasicSource energySource;
+	private BasicSource energySource = new BasicSource(this, 1000000000, 2);
 
 	public TileEntityIgnisGenerator() {
-		this.energySource = new BasicSource(this, 1000000000, 2);
 		orientation = ForgeDirection.getOrientation(1);
 	}
 
@@ -50,9 +50,10 @@ public class TileEntityIgnisGenerator extends TileEntity {
 			z = ((TileEntity) (jar)).zCoord;
 			if (!super.worldObj.isRemote) {
 				jar.takeFromContainer(Aspect.FIRE, 1);
-				super.worldObj.addBlockEvent(super.xCoord, super.yCoord,
-						super.zCoord, ElectricMagicTools.ignisGeneratorID,
-						5, 0);
+				super.worldObj
+						.addBlockEvent(super.xCoord, super.yCoord,
+								super.zCoord,
+								ElectricMagicTools.ignisGeneratorID, 5, 0);
 			}
 			return true;
 		} else {
@@ -95,5 +96,17 @@ public class TileEntityIgnisGenerator extends TileEntity {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		energySource.readFromNBT(tag);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		energySource.writeToNBT(tag);
 	}
 }

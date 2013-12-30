@@ -409,15 +409,6 @@ public class EntityLaser extends Entity implements IProjectile {
 		this.inGround = par1NBTTagCompound.getByte("inGround") == 1;
 	}
 
-	public void onCollide(Entity par1Entity) {
-		if (!this.worldObj.isRemote)
-			;
-		{
-			this.worldObj.createExplosion(this, this.posX, this.posY,
-					this.posZ, 3, true);
-		}
-	}
-
 	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
 		return 0.0F;
