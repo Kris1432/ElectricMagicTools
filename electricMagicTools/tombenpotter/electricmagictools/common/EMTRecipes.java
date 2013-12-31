@@ -203,6 +203,11 @@ public class EMTRecipes {
 						OreDictionary.WILDCARD_VALUE), 'B',
 				Item.redstoneRepeater);
 
+		shieldBlock = ThaumcraftApi.addArcaneCraftingRecipe("Shield Block",
+				new ItemStack(ElectricMagicTools.shield, 8),
+				CraftingAspects.shieldBlockCrafting, "XYX", "X X", "XYX", 'X',
+				new ItemStack(Block.glass), 'Y', new ItemStack(Block.obsidian));
+
 		// Crucible Recipes
 
 		ignisGenerator = ThaumcraftApi.addCrucibleRecipe("Ignis Generator",
@@ -248,6 +253,7 @@ public class EMTRecipes {
 	public static ShapelessArcaneRecipe diamondOmnitool;
 	public static ShapedArcaneRecipe christmasFocus;
 	public static ShapedArcaneRecipe electricGoggles;
+	public static ShapedArcaneRecipe shieldBlock;
 	public static CrucibleRecipe ignisGenerator;
 	public static CrucibleRecipe auramGenerator;
 	public static IRecipe ironOmnitool;

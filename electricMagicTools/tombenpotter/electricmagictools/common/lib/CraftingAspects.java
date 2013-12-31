@@ -20,4 +20,5 @@ public class CraftingAspects {
 	public static AspectList auramGeneratorCrafting = new AspectList().add(Aspect.AURA, 10).add(Aspect.EXCHANGE, 10);
 	public static AspectList streamChaisnawCrafting = new AspectList().add(Aspect.ENERGY, 50).add(Aspect.TREE, 40).add(Aspect.TOOL, 35).add(Aspect.WATER,  20);
 	public static AspectList rockbreakerDrillCrafting = new AspectList().add(Aspect.TOOL, 35).add(Aspect.STONE, 40).add(Aspect.ENERGY, 50).add(Aspect.FIRE, 20).add(Aspect.MINE, 30);
+	public static AspectList shieldBlockCrafting = new AspectList().add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 2);
 }

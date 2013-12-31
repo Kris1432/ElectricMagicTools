@@ -92,18 +92,19 @@ public class ElectricMagicTools {
 		// Item IDs
 		thaumiumDrillID = config.getItem("Thaumium Drill", 4000).getInt();
 		thaumiumChainsawID = config.getItem("Thaumium Chainsaw", 4001).getInt();
-		quantumThaumicHelmetID = config.getItem("Quantum Thaumic Helmet", 4002)
-				.getInt();
+		quantumThaumicHelmetID = config.getItem("Quantum Goggles of Revealing",
+				4002).getInt();
 		diamondChainsawID = config.getItem("Diamond Chainsaw", 4003).getInt();
 		ironOmnitoolID = config.getItem("Iron Omnitool", 4004).getInt();
 		diamondOmnitoolID = config.getItem("Diamond Omnitool", 4005).getInt();
 		thaumiumOmnitoolID = config.getItem("Thaumium Omnitool", 4006).getInt();
-		nanoThaumicHelmetID = config.getItem("Nanosuit Thaumic Helmet", 4007)
-				.getInt();
+		nanoThaumicHelmetID = config.getItem("Nanosuit Goggles of Revealing",
+				4007).getInt();
 		explosionFocusID = config.getItem("Explosion Focus", 4008).getInt();
 		christmasFocusID = config.getItem("Kris-tmas Focus", 4009).getInt();
 		shieldFocusID = config.getItem("Shield Focus", 4010).getInt();
-		electricGogglesID = config.getItem("Electric Goggles", 4011).getInt();
+		electricGogglesID = config.getItem("Electric Goggles of Revealing",
+				4011).getInt();
 		streamChainsawID = config.getItem("Chainsaw of the Stream", 4012)
 				.getInt();
 		rockbreakerDrillID = config.getItem("Drill of the Rockbreaker", 4013)
@@ -157,13 +158,14 @@ public class ElectricMagicTools {
 
 		LanguageRegistry.addName(thaumiumDrill, "Thaumium Drill");
 		LanguageRegistry.addName(thaumiumChainsaw, "Thaumium Chainsaw");
-		LanguageRegistry
-				.addName(quantumThaumicHelmet, "Quantum Thaumic Helmet");
+		LanguageRegistry.addName(quantumThaumicHelmet,
+				"Quantum Goggles of Revealing");
 		LanguageRegistry.addName(diamondChainsaw, "Diamond Chainsaw");
 		LanguageRegistry.addName(ironOmnitool, "Omnitool");
 		LanguageRegistry.addName(diamondOmnitool, "Diamond Omnitool");
 		LanguageRegistry.addName(thaumiumOmnitool, "Thaumium Omnitool");
-		LanguageRegistry.addName(nanoThaumicHelmet, "Nanosuit Thaumic Helmet");
+		LanguageRegistry.addName(nanoThaumicHelmet,
+				"Nanosuit Goggles of Revealing");
 		LanguageRegistry.addName(explosionFocus, "Wand Focus: Explosion");
 		LanguageRegistry.addName(christmasFocus, "Wand Focus : Kris-tmas");
 		LanguageRegistry.addName(shieldFocus, "Wand Focus : Shield");

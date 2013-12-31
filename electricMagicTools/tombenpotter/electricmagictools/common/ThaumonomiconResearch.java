@@ -90,5 +90,9 @@ public class ThaumonomiconResearch {
 		 text ="1";
 		 research = new EMTResearchItem("Drill of the Rockbreaker", "EMT", ResearchAspects.rockbreakerDrillResearch, 0, -4, 6, new ItemStack(ElectricMagicTools.rockbreakerDrill)).setParents("Thaumium Drill").setConcealed().setComplexity(6).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.rockbreakerDrill));
+		 
+		 text ="1";
+		 research = new EMTResearchItem("Shield Block", "EMT", ResearchAspects.shieldBlockResearch, 4, 5, -2, new ItemStack(ElectricMagicTools.shield)).setParents("Shield Focus").setConcealed().setComplexity(2).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.shieldBlock));
 	 }
 }
