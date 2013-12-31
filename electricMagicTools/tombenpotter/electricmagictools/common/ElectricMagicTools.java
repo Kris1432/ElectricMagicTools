@@ -29,6 +29,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.Ite
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolDiamond;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolIron;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemOmnitoolThaumium;
+import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemRockbreakerDrill;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemStreamChainsaw;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemThaumiumChainsaw;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ItemThaumiumDrill;
@@ -55,6 +56,7 @@ public class ElectricMagicTools {
 	public static Item shieldFocus;
 	public static Item electricGoggles;
 	public static Item streamChainsaw;
+	public static Item rockbreakerDrill;
 
 	public static Block potentiaGenerator;
 	public static Block shield;
@@ -78,6 +80,7 @@ public class ElectricMagicTools {
 	public static int ignisGeneratorID;
 	public static int auramGeneratorID;
 	public static int streamChainsawID;
+	public static int rockbreakerDrillID;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -102,6 +105,8 @@ public class ElectricMagicTools {
 		shieldFocusID = config.getItem("Shield Focus", 4010).getInt();
 		electricGogglesID = config.getItem("Electric Goggles", 4011).getInt();
 		streamChainsawID = config.getItem("Chainsaw of the Stream", 4012)
+				.getInt();
+		rockbreakerDrillID = config.getItem("Drill of the Rockbreaker", 4013)
 				.getInt();
 
 		// Block IDs
@@ -147,6 +152,8 @@ public class ElectricMagicTools {
 				.setUnlocalizedName("electricgoggles");
 		streamChainsaw = new ItemStreamChainsaw(streamChainsawID)
 				.setUnlocalizedName("streamchainsaw");
+		rockbreakerDrill = new ItemRockbreakerDrill(rockbreakerDrillID)
+				.setUnlocalizedName("rockbreakerdrill");
 
 		LanguageRegistry.addName(thaumiumDrill, "Thaumium Drill");
 		LanguageRegistry.addName(thaumiumChainsaw, "Thaumium Chainsaw");
@@ -163,6 +170,7 @@ public class ElectricMagicTools {
 		LanguageRegistry.addName(electricGoggles,
 				"Electric Goggles of Revealing");
 		LanguageRegistry.addName(streamChainsaw, "Chainsaw of the Stream");
+		LanguageRegistry.addName(rockbreakerDrill, "Drill of the Rockbreaker");
 
 		potentiaGenerator = new BlockPotentiaGenerator(potentiaGeneratorID,
 				Material.iron).setUnlocalizedName("potentiagenerator");
@@ -199,11 +207,11 @@ public class ElectricMagicTools {
 
 		EntityRegistry.registerModEntity(EntityLaser.class, "entityLaser", 1,
 				this, 80, 3, true);
-		
+
 		LanguageRegistry.instance().addStringLocalization(
 				"entity.Tombenpotter_ElectricMagicTools.EntityLaser.name",
 				"Laser");
-	
+
 	}
 
 	@EventHandler

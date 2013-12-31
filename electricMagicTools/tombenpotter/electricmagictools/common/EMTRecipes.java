@@ -155,6 +155,24 @@ public class EMTRecipes {
 						Items.getItem("iridiumPlate"),
 						Items.getItem("overclockerUpgrade") });
 
+		rockbreakerDrill = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Drill of the Rockbreaker",
+				new ItemStack(ElectricMagicTools.rockbreakerDrill),
+				6,
+				CraftingAspects.rockbreakerDrillCrafting,
+				new ItemStack(ElectricMagicTools.thaumiumDrill, 1,
+						OreDictionary.WILDCARD_VALUE),
+				new ItemStack[] {
+						new ItemStack(Item.flintAndSteel),
+						new ItemStack(Item.fireballCharge),
+						new ItemStack(ConfigItems.itemPickElemental),
+						new ItemStack(ConfigItems.itemShovelElemental),
+						new ItemStack(Items.getItem("lapotronCrystal")
+								.getItem(), 1, OreDictionary.WILDCARD_VALUE),
+						Items.getItem("reinforcedStone"),
+						Items.getItem("iridiumPlate"),
+						Items.getItem("overclockerUpgrade") });
+
 		// Arcane Worktable Recipes
 
 		diamondOmnitool = ThaumcraftApi.addShapelessArcaneCraftingRecipe(
@@ -226,6 +244,7 @@ public class EMTRecipes {
 	public static InfusionRecipe shieldFocus;
 	public static InfusionRecipe potentiaGenerator;
 	public static InfusionRecipe streamChainsaw;
+	public static InfusionRecipe rockbreakerDrill;
 	public static ShapelessArcaneRecipe diamondOmnitool;
 	public static ShapedArcaneRecipe christmasFocus;
 	public static ShapedArcaneRecipe electricGoggles;

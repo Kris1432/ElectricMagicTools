@@ -84,7 +84,11 @@ public class ThaumonomiconResearch {
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.auramGenerator));
 		 
 		 text = "1";
-		 research = new EMTResearchItem("Chainsaw of the Stream", "EMT", ResearchAspects.streamChainsawResearch, -4, -2, 6, new ItemStack(ElectricMagicTools.streamChainsaw)).setParents("Thaumium Chainsaw").setConcealed().setComplexity(5).registerResearchItem();
+		 research = new EMTResearchItem("Chainsaw of the Stream", "EMT", ResearchAspects.streamChainsawResearch, -3, -4, 6, new ItemStack(ElectricMagicTools.streamChainsaw)).setParents("Thaumium Chainsaw").setConcealed().setComplexity(6).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.streamChainsaw));
+		 
+		 text ="1";
+		 research = new EMTResearchItem("Drill of the Rockbreaker", "EMT", ResearchAspects.rockbreakerDrillResearch, 0, -4, 6, new ItemStack(ElectricMagicTools.rockbreakerDrill)).setParents("Thaumium Drill").setConcealed().setComplexity(6).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.rockbreakerDrill));
 	 }
 }
