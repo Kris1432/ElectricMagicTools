@@ -18,7 +18,14 @@ public class CraftingAspects {
 	public static AspectList potentiaGeneratorCrafting = new AspectList().add(Aspect.ENERGY, 40).add(Aspect.MAGIC, 30).add(Aspect.METAL, 35).add(Aspect.EXCHANGE, 30);
 	public static AspectList ignisGeneratorCrafting = new AspectList().add(Aspect.FIRE, 10).add(Aspect.EXCHANGE, 10);
 	public static AspectList auramGeneratorCrafting = new AspectList().add(Aspect.AURA, 10).add(Aspect.EXCHANGE, 10);
+	public static AspectList arborGeneratorCrafting = new AspectList().add(Aspect.TREE, 10).add(Aspect.EXCHANGE, 10);
 	public static AspectList streamChaisnawCrafting = new AspectList().add(Aspect.ENERGY, 50).add(Aspect.TREE, 40).add(Aspect.TOOL, 35).add(Aspect.WATER,  20);
 	public static AspectList rockbreakerDrillCrafting = new AspectList().add(Aspect.TOOL, 35).add(Aspect.STONE, 40).add(Aspect.ENERGY, 50).add(Aspect.FIRE, 20).add(Aspect.MINE, 30);
 	public static AspectList shieldBlockCrafting = new AspectList().add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 2);
+	public static AspectList tinyUraniumCrafting = new AspectList().add(Aspect.FIRE, 1).add(Aspect.WATER, 1).add(Aspect.AIR, 1).add(Aspect.EARTH, 1).add(Aspect.ORDER, 1).add(Aspect.ENTROPY, 1);
+	public static AspectList thorHammerCrafting = new AspectList().add(Aspect.WEAPON, 50).add(Aspect.WEATHER, 50).add(Aspect.ELDRITCH, 40);
+	public static AspectList superchargedThorHammerCrafting = new AspectList().add(Aspect.WEAPON, 45).add(Aspect.ENERGY, 64).add(Aspect.BEAST, 40);
+	public static AspectList wandCharger = new AspectList().add(Aspect.ENERGY, 40).add(Aspect.CRAFT, 50).add(Aspect.EXCHANGE, 39).add(Aspect.GREED, 60);
+	public static AspectList compressedSolars = new AspectList().add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.AIR, 10).add(Aspect.EARTH, 10).add(Aspect.ORDER, 10).add(Aspect.ENTROPY, 10);
+	public static AspectList solarHelmetRevealing = new AspectList().add(Aspect.ENERGY, 32).add(Aspect.AIR, 39).add(Aspect.LIGHT, 20);
 }

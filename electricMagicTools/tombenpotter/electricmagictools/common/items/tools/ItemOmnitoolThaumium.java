@@ -15,7 +15,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
 
 public class ItemOmnitoolThaumium extends ItemOmnitoolDiamond{
 	
-	public int maxCharge = 80000;
+	public int maxCharge = 100000;
 	private final int cost = 600;
 	private final int hitCost = 650;
 

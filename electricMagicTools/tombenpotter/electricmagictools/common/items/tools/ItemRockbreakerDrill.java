@@ -17,6 +17,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
@@ -27,6 +28,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.ForgeEventFactory;
 import thaumcraft.common.Thaumcraft;
 import thaumcraft.common.entities.EntityFollowingItem;
 import thaumcraft.common.lib.Utils;
@@ -49,9 +51,9 @@ public class ItemRockbreakerDrill extends ItemPickaxe implements IElectricItem {
 	}
 
 	public int maxCharge = 900000;
-	private final int cost = 2500;
-	private final int searchCost = 10000;
-	private final int hitCost = 3500;
+	private final int cost = 350;
+	private final int searchCost = 1000;
+	private final int hitCost = 400;
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -176,6 +178,32 @@ public class ItemRockbreakerDrill extends ItemPickaxe implements IElectricItem {
 			float par10) {
 		ElectricItem.manager.use(itemstack, searchCost, player);
 		if (!world.isRemote) {
+			if (player.isSneaking()) {
+				for (int i = 0; i < player.inventory.mainInventory.length; i++) {
+					ItemStack torchStack = player.inventory.mainInventory[i];
+					if (torchStack == null
+							|| !torchStack.getUnlocalizedName().toLowerCase()
+									.contains("torch")) {
+						continue;
+					}
+					Item item = torchStack.getItem();
+					if (!(item instanceof ItemBlock)) {
+						continue;
+					}
+					int oldMeta = torchStack.getItemDamage();
+					int oldSize = torchStack.stackSize;
+					boolean result = torchStack.tryPlaceItemIntoWorld(player,
+							world, x, y, z, side, par8, par9, par10);
+					if (player.capabilities.isCreativeMode) {
+						torchStack.setItemDamage(oldMeta);
+						torchStack.stackSize = oldSize;
+					} else if (torchStack.stackSize <= 0) {
+						ForgeEventFactory.onPlayerDestroyItem(player,
+								torchStack);
+						player.inventory.mainInventory[i] = null;
+					}
+				}
+			}
 			world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D,
 					(double) z + 0.5D, "thaumcraft:wandfail", 0.2F,
 					0.2F + world.rand.nextFloat() * 0.2F);
@@ -200,7 +228,7 @@ public class ItemRockbreakerDrill extends ItemPickaxe implements IElectricItem {
 		}
 		return super.onLeftClickEntity(stack, player, entity);
 	}
-	
+
 	@Override
 	public boolean hitEntity(ItemStack itemstack,
 			EntityLivingBase entityliving, EntityLivingBase attacker) {

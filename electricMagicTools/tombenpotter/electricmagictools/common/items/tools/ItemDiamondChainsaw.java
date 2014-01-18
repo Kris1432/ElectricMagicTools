@@ -15,7 +15,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
 
 public class ItemDiamondChainsaw extends ItemThaumiumChainsaw {
 
-	public int maxCharge = 30000;
+	public int maxCharge = 40000;
 	private final int cost = 200;
 	private final int hitCost = 300;
 

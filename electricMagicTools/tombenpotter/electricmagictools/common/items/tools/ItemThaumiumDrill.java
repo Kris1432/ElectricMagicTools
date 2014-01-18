@@ -10,12 +10,13 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.event.ForgeEventFactory;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
@@ -137,16 +138,40 @@ public class ItemThaumiumDrill extends ItemPickaxe implements IElectricItem {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,
-			EntityPlayer par3EntityPlayer) {
-		if (ElectricItem.manager.canUse(par1ItemStack, snowCost)) {
-			if (!par2World.isRemote) {
-				EntitySnowball snowball;
-				snowball = new EntitySnowball(par2World, par3EntityPlayer);
-				par2World.spawnEntityInWorld(snowball);
-			}
-			ElectricItem.manager.use(par1ItemStack, snowCost, par3EntityPlayer);
-		}
-		return par1ItemStack;
-	}
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, 
+            float xOffset, float yOffset, float zOffset)
+    {
+        for(int i = 0; i < player.inventory.mainInventory.length; i++)
+        {
+            ItemStack torchStack = player.inventory.mainInventory[i];
+            if(torchStack == null || !torchStack.getUnlocalizedName().toLowerCase().contains("torch"))
+            {
+                continue;
+            }
+            Item item = torchStack.getItem();
+            if(!(item instanceof ItemBlock))
+            {
+                continue;
+            }
+            int oldMeta = torchStack.getItemDamage();
+            int oldSize = torchStack.stackSize;
+            boolean result = torchStack.tryPlaceItemIntoWorld(player, world, x, y, z, side, xOffset, yOffset, zOffset);
+            if(player.capabilities.isCreativeMode)
+            {
+                torchStack.setItemDamage(oldMeta);
+                torchStack.stackSize = oldSize;
+            } else
+            if(torchStack.stackSize <= 0)
+            {
+                ForgeEventFactory.onPlayerDestroyItem(player, torchStack);
+                player.inventory.mainInventory[i] = null;
+            }
+            if(result)
+            {
+                return true;
+            }
+        }
+
+        return super.onItemUse(stack, player, world, x, y, z, side, xOffset, yOffset, zOffset);
+    }
 }

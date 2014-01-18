@@ -9,5 +9,6 @@ Version 1.0.3 : Attempt to fix the server crash of the mod. Attemps failed.
 Version 1.0.3b : Second attempt to fix the server crash, it is again working in SMP.
 Version 1.0.4 : Adds the Kris-tmas Focus and the Shield Focus
 Version 1.0.5 : Added some Ignis/Potentia/Auram generators, Electric Goggles of revealing, Chainsaw of the Stream, and Drill of the Rockbreaker.
+Version 1.0.6beta1 : Added an Industrial Wand Charging Station, some legendary tools, and a couple of other stuff.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 package electricMagicTools.tombenpotter.electricmagictools.common.blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -127,5 +129,17 @@ public class BlockIgnisGenerator extends BlockContainer {
 		if (rotation == 3) {
 			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void randomDisplayTick(World par1World, int par2, int par3,
+			int par4, Random par5Random) {
+		int l = par1World.getBlockMetadata(par2, par3, par4);
+		float f = (float) par2 + 0.5F;
+		float f1 = (float) par3 + 1.0F;
+		float f2 = (float) par4 + 0.5F;
+		float f3 = 0.52F;
+		float f4 = par5Random.nextFloat() * 0.6F - 0.3F;
+		par1World.spawnParticle("largesmoke", f, f1, f2, 0.0D, 0.0D, 0.0D);
 	}
 }

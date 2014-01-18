@@ -54,13 +54,10 @@ public class ItemShieldFocus extends ItemBaseFocus {
 	@Override
 	public void onUsingFocusTick(ItemStack itemstack, EntityPlayer player,
 			int time) {
-		
-		 player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 1999999999, 100, false));
-		 player.setVelocity(0, 0, 0);
-		 player.motionX = 0;
-		 player.motionY = 0;
-		 player.motionZ = 0;
-		
+		player.motionX = 0.0D;
+		player.motionY = 0.0D;
+		player.motionZ = 0.0D;
+
 		ItemWandCasting wand = (ItemWandCasting) itemstack.getItem();
 		if (wand.consumeAllVis(itemstack, player, getVisCost(), true)) {
 			int x = MathHelper.floor_double(player.posX);
@@ -69,55 +66,23 @@ public class ItemShieldFocus extends ItemBaseFocus {
 
 			if (wand.consumeAllVis(itemstack, player, getVisCost(), true)) {
 				// Player Level
-				player.worldObj.setBlock(x + 2, y, z,
+				player.worldObj.setBlock(x + 1, y, z,
 						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 2, y, z + 1,
+				player.worldObj.setBlock(x - 1, y, z,
 						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 2, y, z - 1,
+				player.worldObj.setBlock(x, y, z + 1,
 						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x, y, z + 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x, y, z - 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 1, y, z - 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 1, y, z + 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 1, y, z + 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 1, y, z - 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 2, y, z,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 2, y, z + 1,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 2, y, z - 1,
+				player.worldObj.setBlock(x, y, z - 1,
 						ElectricMagicTools.shield.blockID);
 
-				// 1 Above the Player
-				player.worldObj.setBlock(x + 2, y + 1, z,
+				// Above the player
+				player.worldObj.setBlock(x + 1, y + 1, z,
 						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 2, y + 1, z + 1,
+				player.worldObj.setBlock(x - 1, y + 1, z,
 						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 2, y + 1, z - 1,
+				player.worldObj.setBlock(x, y + 1, z + 1,
 						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x, y + 1, z + 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x, y + 1, z - 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 1, y + 1, z - 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 1, y + 1, z + 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 1, y + 1, z + 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x + 1, y + 1, z - 2,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 2, y + 1, z,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 2, y + 1, z + 1,
-						ElectricMagicTools.shield.blockID);
-				player.worldObj.setBlock(x - 2, y + 1, z - 1,
+				player.worldObj.setBlock(x, y + 1, z - 1,
 						ElectricMagicTools.shield.blockID);
 			}
 		}
@@ -131,33 +96,17 @@ public class ItemShieldFocus extends ItemBaseFocus {
 		int z = MathHelper.floor_double(player.posZ);
 
 		// Player Level
-		player.worldObj.setBlock(x + 2, y, z, 0);
-		player.worldObj.setBlock(x + 2, y, z + 1, 0);
-		player.worldObj.setBlock(x + 2, y, z - 1, 0);
-		player.worldObj.setBlock(x, y, z + 2, 0);
-		player.worldObj.setBlock(x, y, z - 2, 0);
-		player.worldObj.setBlock(x - 1, y, z - 2, 0);
-		player.worldObj.setBlock(x - 1, y, z + 2, 0);
-		player.worldObj.setBlock(x + 1, y, z + 2, 0);
-		player.worldObj.setBlock(x + 1, y, z - 2, 0);
-		player.worldObj.setBlock(x - 2, y, z, 0);
-		player.worldObj.setBlock(x - 2, y, z + 1, 0);
-		player.worldObj.setBlock(x - 2, y, z - 1, 0);
+		player.worldObj.setBlock(x + 1, y, z, 0);
+		player.worldObj.setBlock(x - 1, y, z, 0);
+		player.worldObj.setBlock(x, y, z + 1, 0);
+		player.worldObj.setBlock(x, y, z - 1, 0);
 
-		// 1 Above the Player
-		player.worldObj.setBlock(x + 2, y + 1, z, 0);
-		player.worldObj.setBlock(x + 2, y + 1, z + 1, 0);
-		player.worldObj.setBlock(x + 2, y + 1, z - 1, 0);
-		player.worldObj.setBlock(x, y + 1, z + 2, 0);
-		player.worldObj.setBlock(x, y + 1, z - 2, 0);
-		player.worldObj.setBlock(x - 1, y + 1, z - 2, 0);
-		player.worldObj.setBlock(x - 1, y + 1, z + 2, 0);
-		player.worldObj.setBlock(x + 1, y + 1, z + 2, 0);
-		player.worldObj.setBlock(x + 1, y + 1, z - 2, 0);
-		player.worldObj.setBlock(x - 2, y + 1, z, 0);
-		player.worldObj.setBlock(x - 2, y + 1, z + 1, 0);
-		player.worldObj.setBlock(x - 2, y + 1, z - 1, 0);
-		
+		// Above the player
+		player.worldObj.setBlock(x + 1, y + 1, z, 0);
+		player.worldObj.setBlock(x - 1, y + 1, z, 0);
+		player.worldObj.setBlock(x, y + 1, z + 1, 0);
+		player.worldObj.setBlock(x, y + 1, z - 1, 0);
+
 		ItemStack milk = (new ItemStack(Item.bucketMilk));
 		player.curePotionEffects(milk);
 	}

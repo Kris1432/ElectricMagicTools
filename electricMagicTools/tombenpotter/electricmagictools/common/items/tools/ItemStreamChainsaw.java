@@ -31,7 +31,7 @@ public class ItemStreamChainsaw extends ItemAxe implements IElectricItem {
 	boolean alternateClient;
 	public static ArrayList oreDictLogs = new ArrayList();
 	public int maxCharge = 900000;
-	private final int cost = 2500;
+	private final int cost = 400;
 	private final int hitCost = 500;
 
 	public ItemStreamChainsaw(int id) {

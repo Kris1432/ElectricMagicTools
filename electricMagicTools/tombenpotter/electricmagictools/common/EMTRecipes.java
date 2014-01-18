@@ -1,6 +1,8 @@
 package electricMagicTools.tombenpotter.electricmagictools.common;
 
 import ic2.api.item.Items;
+import ic2.api.recipe.RecipeInputItemStack;
+import ic2.api.recipe.Recipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,9 +33,9 @@ public class EMTRecipes {
 						OreDictionary.WILDCARD_VALUE),
 				new ItemStack[] { new ItemStack(Item.diamond),
 						new ItemStack(Item.diamond),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
 						Items.getItem("denseplateiron") });
 
 		thaumiumChainsaw = ThaumcraftApi.addInfusionCraftingRecipe(
@@ -41,17 +43,17 @@ public class EMTRecipes {
 				new ItemStack(ElectricMagicTools.thaumiumChainsaw),
 				5,
 				CraftingAspects.thaumiumChainsawCrafting,
-				new ItemStack(Items.getItem("chainsaw").getItem(), 1,
+				new ItemStack(ElectricMagicTools.diamondChainsaw, 1,
 						OreDictionary.WILDCARD_VALUE),
 				new ItemStack[] { new ItemStack(Item.diamond),
 						new ItemStack(Item.diamond),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
 						Items.getItem("denseplateiron") });
 
 		thaumicQuantumHelmet = ThaumcraftApi.addInfusionCraftingRecipe(
-				"Thaumic Quantum Helmet",
+				"Quantum Goggles of Revealing",
 				new ItemStack(ElectricMagicTools.quantumThaumicHelmet),
 				6,
 				CraftingAspects.thaumicQuantumHelmetCrafting,
@@ -60,13 +62,13 @@ public class EMTRecipes {
 				new ItemStack[] { new ItemStack(Item.diamond),
 						new ItemStack(Item.bucketMilk),
 						new ItemStack(ConfigItems.itemGoggles, 1),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
 						Items.getItem("iridiumPlate"),
 						Items.getItem("advancedCircuit") });
 
 		thaumicNanoHelmet = ThaumcraftApi.addInfusionCraftingRecipe(
-				"Thaumic Nanosuit Helmet",
+				"Nanosuit Goggles of Revealing",
 				new ItemStack(ElectricMagicTools.nanoThaumicHelmet),
 				5,
 				CraftingAspects.thaumicNanoHelmetCrafting,
@@ -75,8 +77,8 @@ public class EMTRecipes {
 				new ItemStack[] { new ItemStack(Item.diamond),
 						new ItemStack(Item.ingotGold),
 						new ItemStack(ConfigItems.itemGoggles, 1),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
 						Items.getItem("carbonPlate"),
 						Items.getItem("electronicCircuit") });
 
@@ -90,9 +92,9 @@ public class EMTRecipes {
 				new ItemStack[] {
 						new ItemStack(ElectricMagicTools.thaumiumDrill, 1,
 								OreDictionary.WILDCARD_VALUE),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
-						new ItemStack(ConfigItems.itemResource, 1, 2),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
+						new ItemStack(ElectricMagicTools.thaumiumPlate),
 						Items.getItem("carbonPlate"),
 						Items.getItem("plateobsidian") });
 
@@ -173,6 +175,71 @@ public class EMTRecipes {
 						Items.getItem("iridiumPlate"),
 						Items.getItem("overclockerUpgrade") });
 
+		thorHammer = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Mjolnir",
+				new ItemStack(ElectricMagicTools.thorHammer),
+				7,
+				CraftingAspects.thorHammerCrafting,
+				new ItemStack(ElectricMagicTools.taintedThorHammer, 1,
+						OreDictionary.WILDCARD_VALUE),
+				new ItemStack[] {
+						new ItemStack(ElectricMagicTools.lightningSummoner),
+						new ItemStack(ElectricMagicTools.lightningSummoner),
+						new ItemStack(ConfigItems.itemSwordElemental),
+						new ItemStack(ConfigItems.itemResource, 1, 1),
+						new ItemStack(ConfigItems.itemFocusShock),
+						Items.getItem("rubber") });
+
+		superchargedThorHammer = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Supercharged Mjolnir",
+				new ItemStack(ElectricMagicTools.electricThorHammer),
+				10,
+				CraftingAspects.superchargedThorHammerCrafting,
+				new ItemStack(ElectricMagicTools.thorHammer, 1,
+						OreDictionary.WILDCARD_VALUE),
+				new ItemStack[] {
+						new ItemStack(ElectricMagicTools.lightningSummoner),
+						new ItemStack(ElectricMagicTools.lightningSummoner),
+						new ItemStack(Block.web),
+						new ItemStack(ConfigItems.itemFocusHellbat),
+						new ItemStack(ConfigItems.itemSwordElemental),
+						new ItemStack(Items.getItem("lapotronCrystal")
+								.getItem(), 1, OreDictionary.WILDCARD_VALUE),
+						Items.getItem("iridiumPlate"),
+						Items.getItem("iridiumPlate"),
+						new ItemStack(Items.getItem("nanoSaber").getItem(), 1,
+								OreDictionary.WILDCARD_VALUE) });
+
+		wandRecharger = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Industrial Wand Charging Station",
+				new ItemStack(ElectricMagicTools.industrialRecharger),
+				10,
+				CraftingAspects.wandCharger,
+				new ItemStack(ConfigBlocks.blockStoneDevice, 1, 5),
+				new ItemStack[] {
+						Items.getItem("replicator"),
+						Items.getItem("tradeOMat"),
+						Items.getItem("iridiumPlate"),
+						new ItemStack(Block.blockDiamond),
+						new ItemStack(ConfigItems.itemShard, 1, 5),
+						new ItemStack(ConfigBlocks.blockJar)});
+
+		solarHelmetRevealing = ThaumcraftApi
+				.addInfusionCraftingRecipe(
+						"Solar Helmet of Revealing",
+						new ItemStack(ElectricMagicTools.solarHelmetRevealing),
+						5,
+						CraftingAspects.solarHelmetRevealing,
+						new ItemStack(ElectricMagicTools.quantumThaumicHelmet),
+						new ItemStack[] {
+								new ItemStack(
+										ElectricMagicTools.doubleCompressedSolar),
+								Items.getItem("glassFiberCableItem"),
+								new ItemStack(Items.getItem("lapotronCrystal")
+										.getItem(), 1,
+										OreDictionary.WILDCARD_VALUE),
+								new ItemStack(ConfigItems.itemShard, 1, 4) });
+
 		// Arcane Worktable Recipes
 
 		diamondOmnitool = ThaumcraftApi.addShapelessArcaneCraftingRecipe(
@@ -208,6 +275,23 @@ public class EMTRecipes {
 				CraftingAspects.shieldBlockCrafting, "XYX", "X X", "XYX", 'X',
 				new ItemStack(Block.glass), 'Y', new ItemStack(Block.obsidian));
 
+		tinyUranium = ThaumcraftApi.addShapelessArcaneCraftingRecipe(
+				"Tiny Uranium", new ItemStack(Items.getItem("smallUran235")
+						.getItem(), 7), CraftingAspects.tinyUraniumCrafting,
+				Items.getItem("Uran238"));
+
+		compressedSolar = ThaumcraftApi.addArcaneCraftingRecipe(
+				"Compressed Solars", new ItemStack(
+						ElectricMagicTools.compressedSolar),
+				CraftingAspects.compressedSolars, "XXX", "XXX", "XXX", 'X',
+				Items.getItem("solarPanel"));
+
+		doubleCompressedSolar = ThaumcraftApi.addArcaneCraftingRecipe(
+				"Compressed Solars", new ItemStack(
+						ElectricMagicTools.doubleCompressedSolar),
+				CraftingAspects.compressedSolars, "XXX", "XXX", "XXX", 'X',
+				new ItemStack(ElectricMagicTools.compressedSolar));
+
 		// Crucible Recipes
 
 		ignisGenerator = ThaumcraftApi.addCrucibleRecipe("Ignis Generator",
@@ -220,6 +304,56 @@ public class EMTRecipes {
 				new ItemStack(ElectricMagicTools.potentiaGenerator),
 				CraftingAspects.auramGeneratorCrafting);
 
+		arborGenerator = ThaumcraftApi.addCrucibleRecipe("Arbor Generator",
+				new ItemStack(ElectricMagicTools.arborGenerator),
+				new ItemStack(ElectricMagicTools.potentiaGenerator),
+				CraftingAspects.arborGeneratorCrafting);
+
+		// IC2 Stuff related recipes
+
+		// Ore Clusters Macerator Recipes
+		ItemStack ironClusterRecipe = Items.getItem("smallIronDust").copy();
+		ironClusterRecipe.stackSize = 22;
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 1, 16)), null, ironClusterRecipe);
+
+		ItemStack goldClusterRecipe = Items.getItem("smallGoldDust").copy();
+		goldClusterRecipe.stackSize = 22;
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 1, 31)), null, goldClusterRecipe);
+
+		ItemStack copperClusterRecipe = Items.getItem("smallCopperDust").copy();
+		copperClusterRecipe.stackSize = 22;
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 1, 17)), null, copperClusterRecipe);
+
+		ItemStack tinClusterRecipe = Items.getItem("smallTinDust").copy();
+		tinClusterRecipe.stackSize = 22;
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 1, 18)), null, tinClusterRecipe);
+
+		ItemStack silverClusterRecipe = Items.getItem("smallSilverDust").copy();
+		silverClusterRecipe.stackSize = 22;
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 1, 19)), null, silverClusterRecipe);
+
+		ItemStack leadClusterRecipe = Items.getItem("smallLeadDust").copy();
+		leadClusterRecipe.stackSize = 22;
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(
+				ConfigItems.itemNugget, 1, 20)), null, leadClusterRecipe);
+
+		// Thaumium Plates Recipes
+		thaumiumPlate = GameRegistry.addShapedRecipe(new ItemStack(
+				ElectricMagicTools.thaumiumPlate), "X", "Y", "Z", 'Y',
+				new ItemStack(ConfigItems.itemResource, 1, 2), 'X',
+				new ItemStack(Items.getItem("ForgeHammer").getItem(), 1,
+						OreDictionary.WILDCARD_VALUE), 'Z', new ItemStack(
+						Block.obsidian));
+
+		Recipes.metalformerRolling.addRecipe(new RecipeInputItemStack(
+				new ItemStack(ConfigItems.itemResource, 1, 2)), null,
+				new ItemStack(ElectricMagicTools.thaumiumPlate));
+
 	}
 
 	public static void initRecipes() {
@@ -227,11 +361,12 @@ public class EMTRecipes {
 		// Crafting Recipes
 
 		ironOmnitool = GameRegistry.addShapedRecipe(new ItemStack(
-				ElectricMagicTools.ironOmnitool), "X", "Y", 'X', new ItemStack(
-				Items.getItem("chainsaw").getItem(), 1,
-				OreDictionary.WILDCARD_VALUE), 'Y', new ItemStack(Items
-				.getItem("miningDrill").getItem(), 1,
-				OreDictionary.WILDCARD_VALUE));
+				ElectricMagicTools.ironOmnitool), "X", "Z", "Y", 'X',
+				new ItemStack(Items.getItem("chainsaw").getItem(), 1,
+						OreDictionary.WILDCARD_VALUE), 'Y', new ItemStack(Items
+						.getItem("miningDrill").getItem(), 1,
+						OreDictionary.WILDCARD_VALUE), 'Z', Items
+						.getItem("plateiron"));
 
 		diamondChainsaw = GameRegistry.addShapedRecipe(new ItemStack(
 				ElectricMagicTools.diamondChainsaw), " X ", "XYX", 'X',
@@ -250,12 +385,21 @@ public class EMTRecipes {
 	public static InfusionRecipe potentiaGenerator;
 	public static InfusionRecipe streamChainsaw;
 	public static InfusionRecipe rockbreakerDrill;
+	public static InfusionRecipe thorHammer;
+	public static InfusionRecipe superchargedThorHammer;
+	public static InfusionRecipe wandRecharger;
+	public static InfusionRecipe solarHelmetRevealing;
 	public static ShapelessArcaneRecipe diamondOmnitool;
+	public static ShapelessArcaneRecipe tinyUranium;
 	public static ShapedArcaneRecipe christmasFocus;
 	public static ShapedArcaneRecipe electricGoggles;
 	public static ShapedArcaneRecipe shieldBlock;
+	public static ShapedArcaneRecipe compressedSolar;
+	public static ShapedArcaneRecipe doubleCompressedSolar;
 	public static CrucibleRecipe ignisGenerator;
 	public static CrucibleRecipe auramGenerator;
+	public static CrucibleRecipe arborGenerator;
 	public static IRecipe ironOmnitool;
 	public static IRecipe diamondChainsaw;
+	public static IRecipe thaumiumPlate;
 }

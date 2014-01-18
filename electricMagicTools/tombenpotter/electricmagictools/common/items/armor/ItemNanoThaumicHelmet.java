@@ -14,7 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
 
 public class ItemNanoThaumicHelmet extends ItemQuantumThaumicHelmet {
-	
+
 	public int maxCharge = 100000;
 
 	public ItemNanoThaumicHelmet(int id, int par3, int par4) {
@@ -41,12 +41,12 @@ public class ItemNanoThaumicHelmet extends ItemQuantumThaumicHelmet {
 	public int getVisDiscount() {
 		return 6;
 	}
-	
+
 	@Override
 	public int getMaxCharge(ItemStack itemStack) {
 		return maxCharge;
 	}
-	
+
 	public int getEnergyPerDamage() {
 		return 1000;
 	}
@@ -54,14 +54,17 @@ public class ItemNanoThaumicHelmet extends ItemQuantumThaumicHelmet {
 	@Override
 	public void onArmorTickUpdate(World world, EntityPlayer player,
 			ItemStack itemStack) {
-		if (ElectricItem.manager.canUse(itemStack, 1000)) {
+		if (ElectricItem.manager.canUse(itemStack, 1 / 1000)) {
+
 			int x = MathHelper.floor_double(player.posX);
 			int z = MathHelper.floor_double(player.posZ);
 			int y = MathHelper.floor_double(player.posY);
+
 			int lightlevel = player.worldObj.getBlockLightValue(x, y, z);
-			if (lightlevel > 8)
+			if (lightlevel >= 0)
 				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,
-						300, 0, true));
+						300, -3));
+			ElectricItem.manager.use(itemStack, 1 / 1000, player);
 		} else {
 			player.addPotionEffect(new PotionEffect(Potion.blindness.id, 300,
 					0, true));

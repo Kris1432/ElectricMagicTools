@@ -15,7 +15,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
 
 public class ItemOmnitoolDiamond extends ItemOmnitoolIron{
 	
-	public int maxCharge = 40000;
+	public int maxCharge = 70000;
 	private final int cost = 200;
 	private final int hitCost = 250;
 

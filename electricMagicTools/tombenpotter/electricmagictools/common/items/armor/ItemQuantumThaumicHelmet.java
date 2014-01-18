@@ -47,7 +47,9 @@ public class ItemQuantumThaumicHelmet extends ItemArmor implements
 		potionCost.put(Integer.valueOf(Potion.poison.id),
 				Integer.valueOf(10000));
 		potionCost.put(Integer.valueOf(Potion.wither.id),
-				Integer.valueOf(25000));
+				Integer.valueOf(15000));
+		potionCost.put(Integer.valueOf(Potion.confusion.id),
+				Integer.valueOf(5000));
 	}
 
 	public int maxCharge = 10000000;
@@ -108,8 +110,7 @@ public class ItemQuantumThaumicHelmet extends ItemArmor implements
 			{
 				PotionEffect effect = (PotionEffect) i$.next();
 				int id = effect.getPotionID();
-				Integer cost = (Integer) potionCost.get(Integer
-						.valueOf(id));
+				Integer cost = (Integer) potionCost.get(Integer.valueOf(id));
 				if (cost != null) {
 					cost = Integer.valueOf(cost.intValue()
 							* (effect.getAmplifier() + 1));
@@ -123,14 +124,15 @@ public class ItemQuantumThaumicHelmet extends ItemArmor implements
 			}
 		} while (true);
 
-		if (ElectricItem.manager.canUse(itemStack, 1000)) {
+		if (ElectricItem.manager.canUse(itemStack, 1 / 1000)) {
 			int x = MathHelper.floor_double(player.posX);
 			int z = MathHelper.floor_double(player.posZ);
 			int y = MathHelper.floor_double(player.posY);
 			int lightlevel = player.worldObj.getBlockLightValue(x, y, z);
-			if (lightlevel > 8)
+			if (lightlevel >= 0)
 				player.addPotionEffect(new PotionEffect(Potion.nightVision.id,
-						300, 0, true));
+						300, -3));
+			ElectricItem.manager.use(itemStack, 1 / 1000, player);
 		} else {
 			player.addPotionEffect(new PotionEffect(Potion.blindness.id, 300,
 					0, true));

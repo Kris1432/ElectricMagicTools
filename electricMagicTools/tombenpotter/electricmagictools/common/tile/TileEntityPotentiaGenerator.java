@@ -19,7 +19,7 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 	}
 
 	private BasicSource energySource = new BasicSource(this, 1000000000, 2);
-	
+
 	@Override
 	public void updateEntity() {
 		energySource.updateEntity();
@@ -97,5 +97,17 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 		energySource.invalidate();
 		super.invalidate();
 		onChunkUnload();
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+		energySource.readFromNBT(tag);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+		energySource.writeToNBT(tag);
 	}
 }
