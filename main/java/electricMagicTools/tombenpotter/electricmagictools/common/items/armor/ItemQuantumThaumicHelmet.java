@@ -36,7 +36,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.CreativeTab;
 public class ItemQuantumThaumicHelmet extends ItemArmor implements
 		IElectricItem, IVisDiscounter, IGoggles, IRevealer, IMetalArmor,
 		ISpecialArmor {
-	private static final Map potionCost = new HashMap();
+	private static final Map<Integer, Integer> potionCost = new HashMap();
 
 	public ItemQuantumThaumicHelmet(int id, int par3, int par4) {
 		super(id, EnumArmorMaterial.DIAMOND, par3, par4);
