@@ -144,5 +144,17 @@ public class ThaumonomiconResearch {
 		 text = "1";
 		 research = new EMTResearchItem("Solar Helmet of Revealing", "EMT", ResearchAspects.solarHelmetRevealing, -3, -6, 2, new ItemStack(ElectricMagicTools.solarHelmetRevealing)).setParents("Compressed Solars").setConcealed().setComplexity(6).registerResearchItem();
 		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.solarHelmetRevealing));
+		 
+		 text = "1";
+		 research = new EMTResearchItem("Electric Boots of the Traveller", "EMT", ResearchAspects.electricBootsTravel, 2, 0, 2, new ItemStack(ElectricMagicTools.electricBootsTraveller)).setParents("Electric Magic Tools").setConcealed().setComplexity(3).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.electricBootsTravel));
+		 
+		 text = "1";
+		 research = new EMTResearchItem("Nano Boots of the Traveller", "EMT", ResearchAspects.nanoBootsTravel, 4, 0, 2, new ItemStack(ElectricMagicTools.nanoBootsTraveller)).setParents("Electric Boots of the Traveller").setConcealed().setComplexity(4).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.nanoBootsTravel));
+		 
+		 text = "1";
+		 research = new EMTResearchItem("Quantum Boots of the Traveller", "EMT", ResearchAspects.quantumBootsTravel, 6, 0, 2, new ItemStack(ElectricMagicTools.quantumBootsTraveller)).setParents("Nano Boots of the Traveller").setConcealed().setComplexity(5).registerResearchItem();
+		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.quantumBootsTravel));
 	 }
 }

@@ -123,88 +123,91 @@ public class ItemElectricThorHammer extends ItemSword implements IElectricItem {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world,
 			EntityPlayer player) {
-		player.swingItem();
-
-		// Corners
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ - 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ + 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ - 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ + 8));
-
-		// Fronts
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ));
-		world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX,
-				player.posY, player.posZ - 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world, player.posX,
-				player.posY, player.posZ + 8));
-
-		// Others
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ + 1));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ + 2));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ + 3));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ + 4));
-
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ - 1));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ - 2));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 8, player.posY, player.posZ - 3));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 8, player.posY, player.posZ - 4));
-
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 1, player.posY, player.posZ + 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 2, player.posY, player.posZ - 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 3, player.posY, player.posZ + 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX + 4, player.posY, player.posZ - 8));
-
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 1, player.posY, player.posZ + 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 2, player.posY, player.posZ - 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 3, player.posY, player.posZ + 8));
-		world.spawnEntityInWorld(new EntityLightningBolt(world,
-				player.posX - 4, player.posY, player.posZ - 8));
-
-		EntityArcher archer;
-		archer = new EntityArcher(world);
-		archer.setPosition(player.posX + 8, player.posY + 2, player.posZ - 8);
-		world.spawnEntityInWorld(archer);
-
-		EntityArcher archer1;
-		archer1 = new EntityArcher(world);
-		archer1.setPosition(player.posX - 8, player.posY + 2, player.posZ + 8);
-		world.spawnEntityInWorld(archer1);
-
-		EntityArcher archer2;
-		archer2 = new EntityArcher(world);
-		archer2.setPosition(player.posX - 8, player.posY + 2, player.posZ - 8);
-		world.spawnEntityInWorld(archer2);
-
-		EntityArcher archer3;
-		archer3 = new EntityArcher(world);
-		archer3.setPosition(player.posX + 8, player.posY + 2, player.posZ + 8);
-		world.spawnEntityInWorld(archer3);
-
 		if (player.capabilities.isCreativeMode) {
 			return itemstack;
-		} else if (ElectricItem.manager.use(itemstack, hitCost, player)) {
+		} else if (ElectricItem.manager.canUse(itemstack, lightningCost)) {
+			player.swingItem();
+			// Corners
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ - 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ + 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ - 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ + 8));
+
+			// Fronts
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX, player.posY, player.posZ - 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX, player.posY, player.posZ + 8));
+
+			// Others
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ + 1));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ + 2));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ + 3));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ + 4));
+
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ - 1));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ - 2));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 8, player.posY, player.posZ - 3));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 8, player.posY, player.posZ - 4));
+
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 1, player.posY, player.posZ + 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 2, player.posY, player.posZ - 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 3, player.posY, player.posZ + 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX + 4, player.posY, player.posZ - 8));
+
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 1, player.posY, player.posZ + 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 2, player.posY, player.posZ - 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 3, player.posY, player.posZ + 8));
+			world.spawnEntityInWorld(new EntityLightningBolt(world,
+					player.posX - 4, player.posY, player.posZ - 8));
+
+			EntityArcher archer;
+			archer = new EntityArcher(world);
+			archer.setPosition(player.posX + 8, player.posY + 2,
+					player.posZ - 8);
+			world.spawnEntityInWorld(archer);
+
+			EntityArcher archer1;
+			archer1 = new EntityArcher(world);
+			archer1.setPosition(player.posX - 8, player.posY + 2,
+					player.posZ + 8);
+			world.spawnEntityInWorld(archer1);
+
+			EntityArcher archer2;
+			archer2 = new EntityArcher(world);
+			archer2.setPosition(player.posX - 8, player.posY + 2,
+					player.posZ - 8);
+			world.spawnEntityInWorld(archer2);
+
+			EntityArcher archer3;
+			archer3 = new EntityArcher(world);
+			archer3.setPosition(player.posX + 8, player.posY + 2,
+					player.posZ + 8);
+			world.spawnEntityInWorld(archer3);
+			ElectricItem.manager.use(itemstack, lightningCost, player);
 			return itemstack;
 		} else {
 			world.spawnEntityInWorld(new EntityLightningBolt(world,

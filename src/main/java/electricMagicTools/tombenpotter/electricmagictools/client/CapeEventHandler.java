@@ -23,7 +23,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class CapeEventHandler {
-	private final String serverLocation = "https://dl.dropboxusercontent.com/u/36947577/capes.txt";
+	private final String serverLocation = "https://raw.github.com/Tombenpotter/ElectricMagicTools/master/capes.txt";
 	private final int timeout = 1000;
 
 	private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128,

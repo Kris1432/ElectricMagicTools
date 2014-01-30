@@ -38,6 +38,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.entities.Entity
 import electricMagicTools.tombenpotter.electricmagictools.common.entities.EntityLaser;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.ItemBlockCompressedSolar;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.ItemBlockDoubleCompressedSolar;
+import electricMagicTools.tombenpotter.electricmagictools.common.items.ItemElectricScribingTools;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.ItemLightningSummoner;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.ItemThaumiumPlate;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.armor.ItemElectricBootsTraveller;
@@ -96,6 +97,7 @@ public class ElectricMagicTools {
 	public static Item electricBootsTraveller;
 	public static Item quantumBootsTraveller;
 	public static Item nanoBootsTraveller;
+	public static Item electricScribingTools;
 
 	public static Block potentiaGenerator;
 	public static Block shield;
@@ -137,6 +139,9 @@ public class ElectricMagicTools {
 	public static int electricBootsTravellerID;
 	public static int quantumBootsTravellerID;
 	public static int nanoBootsTravellerID;
+	public static int electricScribingToolsID;
+
+	public static boolean capesOn;
 
 	// Entity Stuff
 	private static int startEID = 300;
@@ -186,6 +191,8 @@ public class ElectricMagicTools {
 				4022).getInt();
 		quantumBootsTravellerID = config.getItem(
 				"Quantum Boots of the Traveller", 4023).getInt();
+		electricScribingToolsID = config.getItem("Electric Scribing Tools",
+				4024).getInt();
 
 		// Block IDs
 		potentiaGeneratorID = config.getBlock("Potentia Generator", 1500)
@@ -200,6 +207,10 @@ public class ElectricMagicTools {
 				.getInt();
 		doubleCompressedSolarID = config.getBlock(
 				"Double Compressed Solar Panel", 1506).getInt();
+
+		// Random Booleans
+		capesOn = config.get(Configuration.CATEGORY_GENERAL,
+				"Enable showing capes", true).getBoolean(capesOn);
 
 		config.save();
 
@@ -262,6 +273,9 @@ public class ElectricMagicTools {
 		quantumBootsTraveller = new ItemQuantumBootsTraveller(
 				quantumBootsTravellerID, 3, 3)
 				.setUnlocalizedName("quantumbootstraveller");
+		electricScribingTools = new ItemElectricScribingTools(
+				electricScribingToolsID)
+				.setUnlocalizedName("electricscribingtools");
 
 		LanguageRegistry.addName(thaumiumDrill, "Thaumium Drill");
 		LanguageRegistry.addName(thaumiumChainsaw, "Thaumium Chainsaw");
@@ -293,6 +307,8 @@ public class ElectricMagicTools {
 				"Nano Boots of the Traveller");
 		LanguageRegistry.addName(quantumBootsTraveller,
 				"Quantum Boots of the Traveller");
+		LanguageRegistry.addName(electricScribingTools,
+				"Electric Scribing Tools");
 
 		// Blocks registry
 		potentiaGenerator = new BlockPotentiaGenerator(potentiaGeneratorID,
@@ -388,10 +404,11 @@ public class ElectricMagicTools {
 
 		NetworkRegistry.instance().registerGuiHandler(this, proxy);
 		EMTRecipes.initRecipes();
-		 if (event.getSide() == Side.CLIENT)
-         {
-             MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
-         }
+
+		if (event.getSide() == Side.CLIENT
+				&& ElectricMagicTools.capesOn == true) {
+			MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
+		}
 	}
 
 	@EventHandler

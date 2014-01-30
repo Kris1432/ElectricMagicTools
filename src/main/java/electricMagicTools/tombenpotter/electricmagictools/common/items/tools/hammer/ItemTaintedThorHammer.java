@@ -38,6 +38,11 @@ public class ItemTaintedThorHammer extends ItemThorHammer {
 				player.posY, player.posZ - 8));
 		world.spawnEntityInWorld(new EntityAlumentum(world, player.posX + 8,
 				player.posY, player.posZ + 8));
+		world.spawnEntityInWorld(new EntityAlumentum(world, player.posX,
+				player.posY + 4, player.posZ));
+		world.spawnEntityInWorld(new EntityAlumentum(world, player.posX,
+				player.posY + 8, player.posZ));
+
 		if (player.capabilities.isCreativeMode) {
 			return itemstack;
 		} else {
@@ -60,6 +65,6 @@ public class ItemTaintedThorHammer extends ItemThorHammer {
 			List list, boolean par4) {
 		list.add("It was, once, the Hammer of Thor.");
 		list.add("It is, now, very dangerous.");
-		list.add("Do NOT right-click unless prepared");
+		list.add("Do NOT right-click.");
 	}
 }

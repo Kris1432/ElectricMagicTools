@@ -10,7 +10,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class RenderArcher extends RenderSnowMan {
 
 	private static final ResourceLocation texture = new ResourceLocation(
-			"electricmagictools:entities/entityarcher.png");
+			"electricmagictools:mobs/entityarcher.png");
 
 	public RenderArcher() {
 		super();

@@ -28,4 +28,7 @@ public class ResearchAspects {
 	public static AspectList wandCharger = new AspectList().add(Aspect.ENERGY, 4).add(Aspect.CRAFT, 2).add(Aspect.EXCHANGE, 3).add(Aspect.GREED, 5);
 	public static AspectList compressedSolars = new AspectList().add(Aspect.ENERGY, 4).add(Aspect.LIGHT, 3).add(Aspect.METAL, 2);
 	public static AspectList solarHelmetRevealing = new AspectList().add(Aspect.ENERGY, 5).add(Aspect.AIR, 2).add(Aspect.LIGHT, 4);
+	public static AspectList electricBootsTravel = new AspectList().add(Aspect.ENERGY, 2).add(Aspect.ARMOR, 5).add(Aspect.MOTION, 2);
+	public static AspectList nanoBootsTravel = new AspectList().add(Aspect.ENERGY, 3).add(Aspect.ARMOR, 5).add(Aspect.MOTION, 3);
+	public static AspectList quantumBootsTravel = new AspectList().add(Aspect.ENERGY, 4).add(Aspect.ARMOR, 5).add(Aspect.MOTION, 4);
 }

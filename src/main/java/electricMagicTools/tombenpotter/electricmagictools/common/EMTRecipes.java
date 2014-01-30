@@ -216,13 +216,12 @@ public class EMTRecipes {
 				10,
 				CraftingAspects.wandCharger,
 				new ItemStack(ConfigBlocks.blockStoneDevice, 1, 5),
-				new ItemStack[] {
-						Items.getItem("replicator"),
+				new ItemStack[] { Items.getItem("replicator"),
 						Items.getItem("tradeOMat"),
 						Items.getItem("iridiumPlate"),
 						new ItemStack(Block.blockDiamond),
 						new ItemStack(ConfigItems.itemShard, 1, 5),
-						new ItemStack(ConfigBlocks.blockJar)});
+						new ItemStack(ConfigBlocks.blockJar) });
 
 		solarHelmetRevealing = ThaumcraftApi
 				.addInfusionCraftingRecipe(
@@ -239,6 +238,49 @@ public class EMTRecipes {
 										.getItem(), 1,
 										OreDictionary.WILDCARD_VALUE),
 								new ItemStack(ConfigItems.itemShard, 1, 4) });
+
+		electricBootsTravel = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Electric Boots of the Traveller", new ItemStack(
+						ElectricMagicTools.electricBootsTraveller), 2,
+				CraftingAspects.electricBootsTravel, new ItemStack(
+						ConfigItems.itemBootsTraveller), new ItemStack[] {
+						new ItemStack(Item.diamond),
+						Items.getItem("elemotor"),
+						Items.getItem("coil"),
+						Items.getItem("hazmatBoots"),
+						new ItemStack(Items.getItem("advBattery").getItem(), 1,
+								OreDictionary.WILDCARD_VALUE),
+						new ItemStack(ConfigItems.itemWispEssence) });
+
+		nanoBootsTravel = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Nano Boots of the Traveller", new ItemStack(
+						ElectricMagicTools.nanoBootsTraveller), 2,
+				CraftingAspects.nanoBootsTravel, new ItemStack(
+						ElectricMagicTools.electricBootsTraveller, 1,
+						OreDictionary.WILDCARD_VALUE), new ItemStack[] {
+						new ItemStack(Item.diamond),
+						Items.getItem("nanoBoots"),
+						new ItemStack(Items.getItem("energyCrystal").getItem(),
+								1, OreDictionary.WILDCARD_VALUE),
+						new ItemStack(ConfigItems.itemWispEssence),
+						new ItemStack(ConfigItems.itemWispEssence) });
+
+		quantumBootsTravel = ThaumcraftApi.addInfusionCraftingRecipe(
+				"Quantum Boots of the Traveller",
+				new ItemStack(ElectricMagicTools.quantumBootsTraveller),
+				2,
+				CraftingAspects.quantumBootsTravel,
+				new ItemStack(ElectricMagicTools.nanoBootsTraveller, 1,
+						OreDictionary.WILDCARD_VALUE),
+				new ItemStack[] {
+						new ItemStack(Block.blockDiamond),
+						Items.getItem("quantumBoots"),
+						new ItemStack(Items.getItem("lapotronCrystal")
+								.getItem(), 1, OreDictionary.WILDCARD_VALUE),
+						Items.getItem("iridiumPlate"),
+						new ItemStack(ConfigItems.itemWispEssence),
+						new ItemStack(ConfigItems.itemWispEssence),
+						new ItemStack(ConfigItems.itemWispEssence) });
 
 		// Arcane Worktable Recipes
 
@@ -389,6 +431,10 @@ public class EMTRecipes {
 	public static InfusionRecipe superchargedThorHammer;
 	public static InfusionRecipe wandRecharger;
 	public static InfusionRecipe solarHelmetRevealing;
+	public static InfusionRecipe electricBootsTravel;
+	public static InfusionRecipe nanoBootsTravel;
+	public static InfusionRecipe quantumBootsTravel;
+
 	public static ShapelessArcaneRecipe diamondOmnitool;
 	public static ShapelessArcaneRecipe tinyUranium;
 	public static ShapedArcaneRecipe christmasFocus;
@@ -396,9 +442,11 @@ public class EMTRecipes {
 	public static ShapedArcaneRecipe shieldBlock;
 	public static ShapedArcaneRecipe compressedSolar;
 	public static ShapedArcaneRecipe doubleCompressedSolar;
+
 	public static CrucibleRecipe ignisGenerator;
 	public static CrucibleRecipe auramGenerator;
 	public static CrucibleRecipe arborGenerator;
+
 	public static IRecipe ironOmnitool;
 	public static IRecipe diamondChainsaw;
 	public static IRecipe thaumiumPlate;
