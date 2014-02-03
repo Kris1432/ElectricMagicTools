@@ -1,5 +1,5 @@
-This .txt file is here so that I don't randomly forget to add stuff where it is nedeed.
-Anyone that's not a modder or went here on purpose just has to ignore that.
+This .txt file is here so that I don't randomly forget to add stuff where it is needed.
+Anyone that's not a modder or didn't come here on purpose just has to ignore that.
 Consider this as a TODO list, that also register what's been done.
 
 
@@ -17,25 +17,25 @@ Wand Focus: Explosion: Item is functional, but need to be ameliorated-Research i
 Wand Focus : Kris-tmas: Item is functional-Research is done
 Wand Focus : Shield: Item is functional-Research is done
 Electric Goggles of Revealing: Item is functional-Research is done
-Chainsaw of the Stream: Item is functional-Research is done
-Drill of the Rockbreaker: Item is functional-Research is done
+Chainsaw of the Stream: Item is functional-Research crashes the game-NEEDS FIX
+Drill of the Rockbreaker: Item is functional-Research crashes the game-NEEDS FIX
 Thaumium Plate: Item is functional (it does nothing)-Research is done
 Quantum Solar Helmet of Revealing: Item is functional-Research is done
 Mjolnir: Item is functional-Research is done
 Broken Relic of Mjolnir: Item is functional-Research is done
 Lightning Summoner: Item is functional-Research is done
 Supercharged Mjolnir: Item is functional-Research is done
-Electric Boots of the Traveller: Item is totally functional-Need to do research
-Nanosuit Boots of the Traveller: Item is not made-Research neither
-Quantum Boots of the Traveller: Item is fully functional, might need tweaking-Need to to research
+Electric Boots of the Traveller: Item is fully functional-Research is done
+Nanosuit Boots of the Traveller: Item is fully functional-Research is done
+Quantum Boots of the Traveller: Item is fully functional-Research is done
 
 Blocks---------------------------------------------------------------------------------------------------
 
 Potentia Generator: Block is functional-Research is done
 Shield Block: Block is functional, but doesn't resist to a wither (this needs fix)-Research is done
-Ignis Generator: Block is functional-Research is done-Need to fix the rate at which essence is drawn
-Auram Generator: Block is functional-Research is done-Need to fix the rate at which essence is drawn
-Arbor Generator: Block is functional-Research is done-Need to fix the rate at which essence is drawn
+Ignis Generator: Block is functional-Research is done
+Auram Generator: Block is functional-Research is done
+Arbor Generator: Block is functional-Research is done
 Industrial Wand Charging Station: Block is functional-Research is done
 Compressed Solar Panel: Block is functional-Research is done
 Double Compressed Solar Panel: Block is functional-Research is done

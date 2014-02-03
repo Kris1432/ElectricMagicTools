@@ -121,7 +121,7 @@ public class ItemStreamChainsaw extends ItemAxe implements IElectricItem {
 
 	@Override
 	public int getTransferLimit(ItemStack itemStack) {
-		return 9000;
+		return 900;
 	}
 
 	@SideOnly(Side.CLIENT)

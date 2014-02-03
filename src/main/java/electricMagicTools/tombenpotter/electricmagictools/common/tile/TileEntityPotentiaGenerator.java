@@ -6,7 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.tiles.TileJarFillable;
-import electricMagicTools.tombenpotter.electricmagictools.common.ElectricMagicTools;
+import electricMagicTools.tombenpotter.electricmagictools.common.Config;
 
 public class TileEntityPotentiaGenerator extends TileEntity {
 	int x;
@@ -18,7 +18,7 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 		orientation = ForgeDirection.getOrientation(1);
 	}
 
-	private BasicSource energySource = new BasicSource(this, 1000000000, 2);
+	private BasicSource energySource = new BasicSource(this, 1000000000, 5);
 
 	@Override
 	public void updateEntity() {
@@ -41,7 +41,7 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 			if (!super.worldObj.isRemote) {
 				jar.takeFromContainer(Aspect.ENERGY, 1);
 				super.worldObj.addBlockEvent(super.xCoord, super.yCoord,
-						super.zCoord, ElectricMagicTools.potentiaGeneratorID,
+						super.zCoord, Config.potentiaGeneratorID,
 						5, 0);
 			}
 			return true;

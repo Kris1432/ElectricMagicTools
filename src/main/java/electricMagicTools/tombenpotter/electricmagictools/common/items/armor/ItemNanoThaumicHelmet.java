@@ -70,4 +70,9 @@ public class ItemNanoThaumicHelmet extends ItemQuantumThaumicHelmet {
 					0, true));
 		}
 	}
+	
+	@Override
+	public int getTransferLimit(ItemStack itemStack) {
+		return 100;
+	}
 }

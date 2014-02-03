@@ -6,14 +6,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.tiles.TileJarFillable;
-import electricMagicTools.tombenpotter.electricmagictools.common.ElectricMagicTools;
+import electricMagicTools.tombenpotter.electricmagictools.common.Config;
 
 public class TileEntityAuramGenerator extends TileEntity {
 	int x;
 	int y;
 	int z;
 	public ForgeDirection orientation;
-	private BasicSource energySource = new BasicSource(this, 1000000000, 2);
+	private BasicSource energySource = new BasicSource(this, 1000000000, 5);
 
 	public TileEntityAuramGenerator() {
 		orientation = ForgeDirection.getOrientation(1);
@@ -50,10 +50,8 @@ public class TileEntityAuramGenerator extends TileEntity {
 			z = ((TileEntity) (jar)).zCoord;
 			if (!super.worldObj.isRemote) {
 				jar.takeFromContainer(Aspect.AURA, 1);
-				super.worldObj
-						.addBlockEvent(super.xCoord, super.yCoord,
-								super.zCoord,
-								ElectricMagicTools.auramGeneratorID, 5, 0);
+				super.worldObj.addBlockEvent(super.xCoord, super.yCoord,
+						super.zCoord, Config.auramGeneratorID, 5, 0);
 			}
 			return true;
 		} else {

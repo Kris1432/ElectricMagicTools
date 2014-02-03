@@ -213,11 +213,10 @@ public class EMTRecipes {
 		wandRecharger = ThaumcraftApi.addInfusionCraftingRecipe(
 				"Industrial Wand Charging Station",
 				new ItemStack(ElectricMagicTools.industrialRecharger),
-				10,
+				6,
 				CraftingAspects.wandCharger,
 				new ItemStack(ConfigBlocks.blockStoneDevice, 1, 5),
 				new ItemStack[] { Items.getItem("replicator"),
-						Items.getItem("tradeOMat"),
 						Items.getItem("iridiumPlate"),
 						new ItemStack(Block.blockDiamond),
 						new ItemStack(ConfigItems.itemShard, 1, 5),
@@ -259,22 +258,22 @@ public class EMTRecipes {
 						ElectricMagicTools.electricBootsTraveller, 1,
 						OreDictionary.WILDCARD_VALUE), new ItemStack[] {
 						new ItemStack(Item.diamond),
-						Items.getItem("nanoBoots"),
+						new ItemStack(Items.getItem("nanoBoots").getItem(), 1,
+								OreDictionary.WILDCARD_VALUE),
 						new ItemStack(Items.getItem("energyCrystal").getItem(),
 								1, OreDictionary.WILDCARD_VALUE),
 						new ItemStack(ConfigItems.itemWispEssence),
 						new ItemStack(ConfigItems.itemWispEssence) });
 
 		quantumBootsTravel = ThaumcraftApi.addInfusionCraftingRecipe(
-				"Quantum Boots of the Traveller",
-				new ItemStack(ElectricMagicTools.quantumBootsTraveller),
-				2,
-				CraftingAspects.quantumBootsTravel,
-				new ItemStack(ElectricMagicTools.nanoBootsTraveller, 1,
-						OreDictionary.WILDCARD_VALUE),
-				new ItemStack[] {
+				"Quantum Boots of the Traveller", new ItemStack(
+						ElectricMagicTools.quantumBootsTraveller), 2,
+				CraftingAspects.quantumBootsTravel, new ItemStack(
+						ElectricMagicTools.nanoBootsTraveller, 1,
+						OreDictionary.WILDCARD_VALUE), new ItemStack[] {
 						new ItemStack(Block.blockDiamond),
-						Items.getItem("quantumBoots"),
+						new ItemStack(Items.getItem("quantumBoots").getItem(),
+								1, OreDictionary.WILDCARD_VALUE),
 						new ItemStack(Items.getItem("lapotronCrystal")
 								.getItem(), 1, OreDictionary.WILDCARD_VALUE),
 						Items.getItem("iridiumPlate"),

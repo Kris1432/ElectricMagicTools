@@ -51,4 +51,9 @@ public class ItemElectricGoggles extends ItemQuantumThaumicHelmet {
 	public void onArmorTickUpdate(World world, EntityPlayer player,
 			ItemStack itemStack) {
 	}
+	
+	@Override
+	public int getTransferLimit(ItemStack itemStack) {
+		return 10;
+	}
 }

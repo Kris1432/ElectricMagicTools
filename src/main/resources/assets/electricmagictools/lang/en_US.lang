@@ -29,6 +29,9 @@ emt.tag.Solar Helmet of Revealing=Charging your sight
 emt.tag.Diamond Chainsaw=Upgrade your tool
 emt.tag.Thaumium Plate=Thaumium, the industrial way
 emt.tag.Macerating Native Ore Clusters=Augmenting your yield
+emt.tag.Electric Boots of the Traveller=Better than repairing
+emt.tag.Nano Boots of the Traveller=At the nano level...
+emt.tag.Quantum Boots of the Traveller=I am here! And here!
 
 Thaumonomicon Texts-----
 emt.text.Electric Magic Tools=Welcome to the realm of magic, associated with technology! Our researchers collaborated with Thaumaturges to make their favourite tools compatible with technology.
@@ -61,3 +64,6 @@ emt.text.Solar Helmet of Revealing=You now have a helmet that acts exactly like 
 emt.text.Diamond Chainsaw=You can upgrade your Chainsaw to a Diamond Chainsaw, making it capable of holding more energy and breaking blocks faster.
 emt.text.Thaumium Plate=You will need Thaumium Plates to be able to craft most items. You can get them as shown, which is slightly more expensive, or in a metal former, requiring only one thaumium bar.
 emt.text.Macerating Native Ore Clusters=You can macerate all Native Ore Clusters, except cinnabar. You will get 22 tiny dusts per Native Ore Cluster macerated.
+emt.text.Electric Boots of the Traveller=You have discovered a way to merge your Boots of the Traveller with mundane electricity. You can now create a pair of boots that negate all fall damage, and have all the properties of the boots of the traveller.
+emt.text.Nano Boots of the Traveller=You have found out how to upgrade your Electric Boots of the Traveller, by manipulating them at the nano level. They provide a greater speed and jump when worn.
+emt.text.Quantum Boots of the Traveller=You have meddled with Quantum Physics, making these Quantum Boots of the Traveller so fast, that your appear to be at multiple places at once. But do not forget what happened to Schrodinger's cat...

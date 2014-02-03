@@ -5,7 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.ForgeDirection;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.tiles.TileJarFillable;
-import electricMagicTools.tombenpotter.electricmagictools.common.ElectricMagicTools;
+import electricMagicTools.tombenpotter.electricmagictools.common.Config;
 
 public class TileEntityArborGenerator extends TileEntity {
 	int x;
@@ -17,7 +17,7 @@ public class TileEntityArborGenerator extends TileEntity {
 		orientation = ForgeDirection.getOrientation(1);
 	}
 
-	private BasicSource energySource = new BasicSource(this, 1000000000, 2);
+	private BasicSource energySource = new BasicSource(this, 1000000000, 3);
 
 	@Override
 	public void updateEntity() {
@@ -27,7 +27,7 @@ public class TileEntityArborGenerator extends TileEntity {
 		TileEntity arbor = super.worldObj.getBlockTileEntity(x, y, z);
 		if (arbor != null && (arbor instanceof TileJarFillable)) {
 			if (checkArbor((TileJarFillable) arbor)) {
-				energySource.addEnergy(650);
+				energySource.addEnergy(325);
 			}
 		}
 	}
@@ -40,8 +40,7 @@ public class TileEntityArborGenerator extends TileEntity {
 			if (!super.worldObj.isRemote) {
 				jar.takeFromContainer(Aspect.TREE, 1);
 				super.worldObj.addBlockEvent(super.xCoord, super.yCoord,
-						super.zCoord, ElectricMagicTools.potentiaGeneratorID,
-						5, 0);
+						super.zCoord, Config.potentiaGeneratorID, 5, 0);
 			}
 			return true;
 		} else {

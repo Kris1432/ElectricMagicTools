@@ -15,6 +15,6 @@ public class ItemBlockCompressedSolar extends ItemBlock {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player,
 			List list, boolean par4) {
-		list.add("10 eu/t");
+		list.add("10 EU/T");
 	}
 }

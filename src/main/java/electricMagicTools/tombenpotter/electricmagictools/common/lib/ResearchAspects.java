@@ -20,7 +20,7 @@ public class ResearchAspects {
 	public static AspectList auramGeneratorResearch = new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.AURA, 3);
 	public static AspectList arborGeneratorResearch = new AspectList().add(Aspect.EXCHANGE, 4).add(Aspect.TREE, 3);	
 	public static AspectList streamChainsawResearch = new AspectList().add(Aspect.TOOL, 3).add(Aspect.TREE, 3).add(Aspect.WATER, 6).add(Aspect.ENERGY, 4);
-	public static AspectList rockbreakerDrillResearch = new AspectList().add(Aspect.TOOL, 4).add(Aspect.STONE, 2).add(Aspect.ENERGY, 3).add(Aspect.FIRE, 2).add(Aspect.MINE, 3);
+	public static AspectList rockbreakerDrillResearch = new AspectList().add(Aspect.STONE, 2).add(Aspect.ENERGY, 3).add(Aspect.FIRE, 2).add(Aspect.MINE, 3);
 	public static AspectList shieldBlockResearch = new AspectList().add(Aspect.ARMOR, 3).add(Aspect.STONE, 2).add(Aspect.TRAP, 2);
 	public static AspectList tinyUraniumResearch = new AspectList().add(Aspect.POISON, 4).add(Aspect.DEATH, 3).add(Aspect.EXCHANGE, 3);
 	public static AspectList thorHammerResearch = new AspectList().add(Aspect.WEAPON, 3).add(Aspect.WEATHER, 4).add(Aspect.ELDRITCH, 3);
