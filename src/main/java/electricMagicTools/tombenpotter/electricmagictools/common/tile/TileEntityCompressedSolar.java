@@ -47,7 +47,7 @@ public class TileEntityCompressedSolar extends TileEntity implements
 		int energyProduction = 0;
 
 		if (theSunIsVisible) {
-			energySource.addEnergy(20);
+			energySource.addEnergy(10);
 		}
 		energySource.addEnergy(energyProduction);
 	}

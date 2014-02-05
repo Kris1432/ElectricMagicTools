@@ -27,7 +27,7 @@ public class TileEntityArborGenerator extends TileEntity {
 		TileEntity arbor = super.worldObj.getBlockTileEntity(x, y, z);
 		if (arbor != null && (arbor instanceof TileJarFillable)) {
 			if (checkArbor((TileJarFillable) arbor)) {
-				energySource.addEnergy(325);
+				energySource.addEnergy(Config.arborGenOutput);
 			}
 		}
 	}

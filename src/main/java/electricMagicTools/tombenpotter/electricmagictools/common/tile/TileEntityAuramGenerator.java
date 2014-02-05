@@ -27,7 +27,7 @@ public class TileEntityAuramGenerator extends TileEntity {
 		TileEntity potentia = super.worldObj.getBlockTileEntity(x, y, z);
 		if (potentia != null && (potentia instanceof TileJarFillable)) {
 			if (checkIgnis((TileJarFillable) potentia)) {
-				energySource.addEnergy(6400);
+				energySource.addEnergy(Config.auramGenOutput);
 			}
 		}
 	}

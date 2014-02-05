@@ -6,3 +6,4 @@ israelim125:https://raw.github.com/Tombenpotter/ElectricMagicTools/master/capes/
 fajii:https://raw.github.com/Tombenpotter/ElectricMagicTools/master/capes/cape.png
 wasliebob:https://raw.github.com/Tombenpotter/ElectricMagicTools/master/capes/cape.png
 VMvinner:https://raw.github.com/Tombenpotter/ElectricMagicTools/master/capes/cape.png
+Drullkus:https://dl.dropboxusercontent.com/s/c14341qirixfbk8/dkicapesmall.png

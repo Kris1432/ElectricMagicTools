@@ -26,7 +26,7 @@ public class ThaumonomiconResearch {
 		 
          text = "1";
 		 research = new EMTResearchItem("Electric Magic Tools", "EMT", new AspectList(), 0, 0, 0, new ResourceLocation("electricmagictools:textures/misc/emt.png")).setRound().setAutoUnlock().registerResearchItem();
-		 research.setPages(new ResearchPage(text), new ResearchPage(EMTRecipes.thaumiumPlate));
+		 research.setPages(new ResearchPage(text));
 		 
 		 text = "1";
 		 research = new EMTResearchItem("Diamond Chainsaw", "EMT", new AspectList(), 5, -6, 0, new ItemStack(ElectricMagicTools.diamondChainsaw)).setRound().setAutoUnlock().registerResearchItem();

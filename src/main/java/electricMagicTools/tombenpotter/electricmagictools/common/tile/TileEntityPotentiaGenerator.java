@@ -28,7 +28,7 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 		TileEntity potentia = super.worldObj.getBlockTileEntity(x, y, z);
 		if (potentia != null && (potentia instanceof TileJarFillable)) {
 			if (checkPotentia((TileJarFillable) potentia)) {
-				energySource.addEnergy(6500);
+				energySource.addEnergy(Config.potentiaGenOutput);
 			}
 		}
 	}
@@ -41,8 +41,7 @@ public class TileEntityPotentiaGenerator extends TileEntity {
 			if (!super.worldObj.isRemote) {
 				jar.takeFromContainer(Aspect.ENERGY, 1);
 				super.worldObj.addBlockEvent(super.xCoord, super.yCoord,
-						super.zCoord, Config.potentiaGeneratorID,
-						5, 0);
+						super.zCoord, Config.potentiaGeneratorID, 5, 0);
 			}
 			return true;
 		} else {

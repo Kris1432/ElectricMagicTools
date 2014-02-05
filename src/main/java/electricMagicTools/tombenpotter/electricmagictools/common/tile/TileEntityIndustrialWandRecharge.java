@@ -13,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import cpw.mods.fml.common.network.PacketDispatcher;
+import electricMagicTools.tombenpotter.electricmagictools.common.Config;
 
 public class TileEntityIndustrialWandRecharge extends TileEntity implements
 		IInventory {
@@ -75,7 +76,7 @@ public class TileEntityIndustrialWandRecharge extends TileEntity implements
 
 				ItemStack wand = getStackInSlot(0);
 
-				if (ic2EnergySink.useEnergy(50000)) {
+				if (ic2EnergySink.useEnergy(Config.wandChargerConsumption)) {
 					if (wand != null
 							&& wand.getItem() instanceof ItemWandCasting) {
 						ItemWandCasting wandItem = (ItemWandCasting) wand

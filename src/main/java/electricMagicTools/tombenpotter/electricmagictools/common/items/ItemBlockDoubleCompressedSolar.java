@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import electricMagicTools.tombenpotter.electricmagictools.common.Config;
 
 public class ItemBlockDoubleCompressedSolar extends ItemBlock {
 
@@ -15,6 +16,6 @@ public class ItemBlockDoubleCompressedSolar extends ItemBlock {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer player,
 			List list, boolean par4) {
-		list.add("100 EU/T");
+		list.add(Config.doubleCompressedSolarOutput + " EU/T");
 	}
 }

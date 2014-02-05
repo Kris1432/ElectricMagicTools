@@ -38,17 +38,39 @@ public class Config {
 	public static int nanoBootsTravellerID;
 	public static int electricScribingToolsID;
 
+	public static double potentiaGenOutput;
+	public static double arborGenOutput;
+	public static double auramGenOutput;
+	public static double ignisGenOutput;
+	public static double wandChargerConsumption;
+	public static double compressedSolarOutput;
+	public static double doubleCompressedSolarOutput;
+
 	public static boolean capesOn;
+
+	public static String CATEGORY_RESEARCH = "Research";
+	public static String CATEGORY_VALUES = "Numeric Values";
 
 	public static void create(FMLPreInitializationEvent event) {
 		Configuration config = new Configuration(
 				event.getSuggestedConfigurationFile());
+		config.addCustomCategoryComment(CATEGORY_VALUES,
+				"The only way to change the EU yield or consumption of every machine that I add.");
+		config.addCustomCategoryComment(CATEGORY_RESEARCH, "The only way to disable some researches. "
+				+ "Be careful, if you disable some researches, make sure that all the other researches "
+				+ "that rely on the one you disabled are disabled too, or else you'll crash. "
+				+ "Really, don't touch to that unless you know exactly what you are doing.");
 
 		config.load();
 
 		// Random Booleans
-		capesOn = config.get(Configuration.CATEGORY_GENERAL,
-				"Enable showing capes", true).getBoolean(capesOn);
+		capesOn = config
+				.get(Configuration.CATEGORY_GENERAL,
+						"Enable showing capes",
+						true,
+						"This config option is to enable or disable capes for people who have them. "
+								+ "Seriously, you shouldn't touch that unless you have a cape and it conflicts with it.")
+				.getBoolean(capesOn);
 
 		// Item IDs
 		thaumiumDrillID = config.getItem("Thaumium Drill", 4000).getInt();
@@ -102,6 +124,63 @@ public class Config {
 				.getInt();
 		doubleCompressedSolarID = config.getBlock(
 				"Double Compressed Solar Panel", 1506).getInt();
+
+		// EU Yield/Consumption modifier
+		potentiaGenOutput = config
+				.get("Numeric Values",
+						"Potentia Generator EU Output",
+						3500,
+						"This is the number you have to modify if you want to make the Potentia Generator yield "
+								+ "more or less EU per unit of essentia.")
+				.getDouble(potentiaGenOutput);
+
+		arborGenOutput = config
+				.get("Numeric Values",
+						"Arbor Generator EU Output",
+						325,
+						"This is the number you have to modify if you want to make the Arbor Generator yield "
+								+ "more or less EU per unit of essentia.")
+				.getDouble(arborGenOutput);
+
+		auramGenOutput = config
+				.get("Numeric Values",
+						"Auram Generator EU Output",
+						3200,
+						"This is the number you have to modify if you want to make the Auram Generator yield "
+								+ "more or less EU per unit of essentia.")
+				.getDouble(auramGenOutput);
+
+		ignisGenOutput = config
+				.get("Numeric Values",
+						"Ignis Generator EU Output",
+						3200,
+						"This is the number you have to modify if you want to make the Ignis Generator yield "
+								+ "more or less EU per unit of essentia.")
+				.getDouble(ignisGenOutput);
+
+		wandChargerConsumption = config
+				.get("Numeric Values",
+						"Industrial Wand Charging Station EU Consumption",
+						50000,
+						"This is the number you have to modify if you want to make the Industrial Wand Charging Station use "
+								+ "more or less EU to charge 1 unit of Vis on your wand.")
+				.getDouble(wandChargerConsumption);
+
+		compressedSolarOutput = config
+				.get("Numeric Values",
+						"Compressed Solar Panel EU Output",
+						10,
+						"This is the number you have to modify if you want to make the Compressed Solar Panel yield "
+								+ "more or less EU per tick. Really, you shouldn't touch that, since it's pretty balanced as it is.")
+				.getDouble(compressedSolarOutput);
+
+		doubleCompressedSolarOutput = config
+				.get("Numeric Values",
+						"Double Compressed Solar Panel EU Output",
+						100,
+						"This is the number you have to modify if you want to make the Double Compressed Solar Panel "
+								+ "yield more or less EU per tick. Really, you shouldn't touch that, since it's pretty balanced as it is.")
+				.getDouble(doubleCompressedSolarOutput);
 
 		config.save();
 	}

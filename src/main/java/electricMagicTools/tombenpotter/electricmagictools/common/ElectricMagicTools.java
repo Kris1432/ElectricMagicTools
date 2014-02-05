@@ -62,7 +62,7 @@ import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.ham
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.hammer.ItemTaintedThorHammer;
 import electricMagicTools.tombenpotter.electricmagictools.common.items.tools.hammer.ItemThorHammer;
 
-@Mod(modid = ElectricMagicTools.modid, name = "Electric Magic Tools", version = "1.0.6", dependencies = "required-after:Thaumcraft ; required-after:IC2")
+@Mod(modid = ElectricMagicTools.modid, name = "Electric Magic Tools", version = "1.0.7", dependencies = "required-after:Thaumcraft ; required-after:IC2")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = { ElectricMagicTools.modid })
 public class ElectricMagicTools {
 
